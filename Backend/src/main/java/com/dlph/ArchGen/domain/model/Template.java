@@ -1,22 +1,22 @@
 package com.dlph.ArchGen.domain.model;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Data
+@Document(collection = "templates")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Template {
-    //@Id
+    @Id
     private String id;
-    @NotNull
     private String name;
-    @NotNull
     private ArchitectureType type;
     private ProjectStructure structure;
+    private String clerkId;
+    private String path;
 }

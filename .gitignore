@@ -1,0 +1,61 @@
+# ===============================
+# GLOBAL IGNORE FOR ALL PROJECT
+# ===============================
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ===============================
+# BACKEND (Spring Boot + Maven/Gradle)
+# ===============================
+/backend/target/
+/backend/build/
+/backend/.classpath
+/backend/.project
+/backend/.settings/
+/backend/.idea/
+/backend/.vscode/
+*.iml
+*.log
+
+# IntelliJ files
+**/.idea/
+**/*.iws
+**/*.iml
+**/*.ipr
+
+# VS Code
+**/.vscode/
+
+# Spring Boot specific
+/backend/src/main/resources/application-dev.properties
+
+# Logs
+/backend/logs/
+**/*.log
+
+# ===============================
+# FRONTEND (Angular)
+# ===============================
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular/cache/
+/frontend/.angular/
+
+# Angular build outputs
+/frontend/tmp/
+/frontend/out-tsc/
+/frontend/.env
+/frontend/.env.*.local
+
+# NPM & Yarn files
+/frontend/package-lock.json
+/frontend/yarn.lock
+
+# ===============================
+# ENVIRONMENT / SECURITY FILES
+# ===============================
+**/.env
+**/.env.local
+**/.env.*.local

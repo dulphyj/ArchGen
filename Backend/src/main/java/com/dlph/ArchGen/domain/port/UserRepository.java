@@ -1,4 +1,4 @@
-package com.dlph.ArchGen.domain.repository;
+package com.dlph.ArchGen.domain.port;
 
 import com.dlph.ArchGen.domain.model.User;
 
@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface UserRepository {
     User save(User user);
-    Optional<User> findById(String id);
-    void deleteUser(String id);
+    Optional<User> findByClerkId(String clerkId);
+    void deleteUserByClerkId(String clerkId);
 }
