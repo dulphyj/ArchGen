@@ -5,5 +5,6 @@ public enum ArchitectureType {
     MVC,
     MICROKERNEL,
     MVVM,
-    CBA
+    CBA,
+    FEATURE_BASED
 }

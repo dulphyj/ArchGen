@@ -1,16 +1,18 @@
-package com.dlph.ArchGen.factory;
+package com.dlph.ArchGen.factory.architectures;
 
 import com.dlph.ArchGen.domain.model.ArchitectureType;
 import com.dlph.ArchGen.domain.model.Folder;
 import com.dlph.ArchGen.domain.model.ProjectStructure;
 import com.dlph.ArchGen.domain.model.Template;
+import com.dlph.ArchGen.factory.TemplateFactory;
+import com.dlph.ArchGen.factory.ZipGenerate;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.util.List;
 
 @Component
-public class MicrokernelTemplateFactory implements TemplateFactory{
+public class MicrokernelTemplateFactory implements TemplateFactory {
     @Override
     public ArchitectureType getArchitectureType() {
         return ArchitectureType.MICROKERNEL;

@@ -1,0 +1,48 @@
+:root {
+    --primary: #5511ED;
+    --secondary: #115AED;
+    --tertiary: #14A4EF;
+    --dark-bg: #3F3842;
+    --light-text: #f1f1f1;
+}
+
+
+body {
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+
+    &:hover {
+        color: var(--tertiary);
+    }
+}
+
+.main-content {
+    overflow-y: auto;
+}
+
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0 1rem;
+    color: var(--light-text);
+    border-bottom: 1px solid #333;
+
+    a {
+        color: var(--light-text);
+        font-weight: bold;
+    }
+
+    a:hover {
+        color: var--(primary);
+    }
+}

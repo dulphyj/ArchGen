@@ -1,0 +1,27 @@
+:host {
+    width: 250px;
+    height: 100%;
+    display: block;
+    background-color: var(--dark-bg);
+    border-right: 1px solid #333;
+    color: var(--light-text);
+}
+
+nav {
+    height: 100%;
+}
+
+.nav-link {
+    color: var(--light-text) !important;
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+        background-color: var(--tertiary);
+        color: var(--light-text) !important;
+    }
+
+    &.active {
+        background-color: var(--primary);
+        color: var(--light-text) !important;
+    }
+}
