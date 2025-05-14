@@ -12,7 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.util.Optional;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/template")
 public class TemplateController {
@@ -27,8 +29,12 @@ public class TemplateController {
             @RequestParam ArchitectureType type,
             @RequestParam String name,
             @RequestParam(required = false) String clerkId) {
-        Template template = templateService.generateTemplate(type, name, clerkId);
-        return ResponseEntity.ok(template);
+        if(templateService.findFirstByTypeAndEditFalseAndClerkIdIsNull(type).isPresent()){
+            return ResponseEntity.badRequest().build();
+        } else {
+            Template template = templateService.generateTemplate(type, name, clerkId);
+            return ResponseEntity.ok(template);
+        }
     }
 
     @GetMapping("/{id}/download")
@@ -63,6 +69,7 @@ public class TemplateController {
                     newTemplate.setType(updatedTemplate.getType());
                     newTemplate.setStructure(updatedTemplate.getStructure());
                     newTemplate.setClerkId(clerkId);
+                    newTemplate.setEdit(true);
                     try {
                         String ZipPath = ZipGenerate.createZipFile(newTemplate.getStructure().getFolders(), newTemplate.getName()).getAbsolutePath();
                         newTemplate.setPath(ZipPath);
@@ -70,10 +77,18 @@ public class TemplateController {
                         throw new RuntimeException(e);
                     }
 
+
                     Template saved = templateService.save(newTemplate);
                     return ResponseEntity.ok(saved);
                 })
                 .orElse(ResponseEntity.notFound().build());
     }
+
+    @GetMapping("/type/{type}")
+    public Optional<Template> getTemplateByType(@PathVariable ArchitectureType type) {
+        return templateService.findFirstByTypeAndEditFalseAndClerkIdIsNull(type);
+    }
+
+
 
 }

@@ -1,11 +1,7 @@
 <nav class="p-3 text-light">
     <ul class="nav flex-column">
-        <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/hexagonal">Hexagonal</a>
+        <li class="nav-item" *ngFor="let type of architectureTypes">
+            <a class="nav-link text-light" [routerLink]="['/architecture', type]" routerLinkActive="active">{{type}}</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link text-light" routerLink="/mvc">MVC</a>
-        </li>
-        <!-- Agrega más arquitecturas aquí -->
     </ul>
 </nav>

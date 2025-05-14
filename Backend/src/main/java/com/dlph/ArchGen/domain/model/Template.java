@@ -19,4 +19,5 @@ public class Template {
     private ProjectStructure structure;
     private String clerkId;
     private String path;
+    private boolean edit;
 }

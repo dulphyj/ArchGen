@@ -1,10 +1,28 @@
-:host {
-    display: block;
-    height: 60px;
-    background-color: var(--primary);
-    color: white;
+.app-header {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary);
+    color: var(--light-text);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.app-header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+.app-header a {
+    color: var(--light-text);
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.app-header a:hover {
+    color: var(--tertiary);
 }

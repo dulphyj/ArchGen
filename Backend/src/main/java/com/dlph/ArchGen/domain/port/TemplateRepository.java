@@ -1,5 +1,6 @@
 package com.dlph.ArchGen.domain.port;
 
+import com.dlph.ArchGen.domain.model.ArchitectureType;
 import com.dlph.ArchGen.domain.model.Template;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface TemplateRepository {
     void deleteById(String id);
     List<Template> findByClerkId(String clerkId);
     List<Template> findByClerkIdIsNull();
+    Optional<Template> findFirstByTypeAndEditFalseAndClerkIdIsNull(ArchitectureType type);
 }

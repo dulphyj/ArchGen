@@ -1,5 +1,6 @@
 package com.dlph.ArchGen.infrastructure.adapter;
 
+import com.dlph.ArchGen.domain.model.ArchitectureType;
 import com.dlph.ArchGen.domain.model.Template;
 import com.dlph.ArchGen.domain.port.TemplateRepository;
 import lombok.AllArgsConstructor;
@@ -40,4 +41,10 @@ public class TemplateRepositoryImp implements TemplateRepository {
     public List<Template> findByClerkIdIsNull() {
         return templateMongoRepository.findByClerkIdIsNull();
     }
+
+    @Override
+    public Optional<Template> findFirstByTypeAndEditFalseAndClerkIdIsNull(ArchitectureType type) {
+        return templateMongoRepository.findFirstByTypeAndEditFalseAndClerkIdIsNull(type);
+    }
+
 }

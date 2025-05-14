@@ -34,7 +34,7 @@ public class CBATemplateFactroy implements TemplateFactory {
         );
         try {
             File zipFile = ZipGenerate.createZipFile(folders, name);
-            return new Template(null, name, ArchitectureType.CBA, new ProjectStructure(folders), clerkId, zipFile.getPath());
+            return new Template(null, name, ArchitectureType.CBA, new ProjectStructure(folders), clerkId, zipFile.getPath(), false);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

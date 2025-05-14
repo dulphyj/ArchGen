@@ -32,7 +32,7 @@ public class FeatureBasedTemplateFactory implements TemplateFactory {
         );
         try {
             File zipFile = ZipGenerate.createZipFile(folders, name);
-            return new Template(null, name, ArchitectureType.FEATURE_BASED, new ProjectStructure(folders), clerkId, zipFile.getPath());
+            return new Template(null, name, ArchitectureType.FEATURE_BASED, new ProjectStructure(folders), clerkId, zipFile.getPath(), false);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

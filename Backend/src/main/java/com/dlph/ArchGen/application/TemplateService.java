@@ -7,6 +7,7 @@ import com.dlph.ArchGen.factory.TemplateFactoryProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -43,4 +44,10 @@ public class TemplateService {
     public List<Template> getUserTemplates(String clerkId) {
         return templateRepository.findByClerkId(clerkId);
     }
+
+    public Optional<Template> findFirstByTypeAndEditFalseAndClerkIdIsNull(ArchitectureType type) {
+        return templateRepository.findFirstByTypeAndEditFalseAndClerkIdIsNull(type);
+    }
+
+
 }
