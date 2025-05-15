@@ -1,0 +1,28 @@
+.folder-wrapper {
+    width: 100%;
+}
+
+.folder-editor {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 95%;
+    margin-bottom: 0.5rem;
+}
+
+.folder-name {
+    flex: 20%;
+}
+
+.folder-description {
+    flex: 75%;
+}
+
+.btn-add {
+    color: aliceblue;
+    background-color: var(--primary);
+}
+
+.folder-icon {
+    font-size: 1.2rem;
+}

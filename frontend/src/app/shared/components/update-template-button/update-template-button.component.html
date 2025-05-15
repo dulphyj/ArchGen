@@ -1,0 +1,3 @@
+<button *ngIf="isAuthenticated" class="btn btn-secondary" (click)="openModal()">Editar estructura</button>
+
+<app-edit-template-modal *ngIf="showEditModal" (closeModal)="closeModal()"></app-edit-template-modal>

@@ -1,7 +1,8 @@
 <nav class="p-3 text-light">
     <ul class="nav flex-column">
         <li class="nav-item" *ngFor="let type of architectureTypes">
-            <a class="nav-link text-light" [routerLink]="['/architecture', type]" routerLinkActive="active">{{type}}</a>
+            <a class="nav-link text-light" (click)="setType(type)">{{type}}</a>
         </li>
+        <li class="nav-item"><a class="nav-link text-light" routerLink="/customtemplates">Mis plantillas</a></li>
     </ul>
 </nav>

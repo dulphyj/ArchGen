@@ -8,6 +8,8 @@ import { MicrokernelComponent } from './pages/architecture/microkernel/microkern
 import { MvvmComponent } from './pages/architecture/mvvm/mvvm.component';
 import { CbaComponent } from './pages/architecture/cba/cba.component';
 import { FeatureBasedComponent } from './pages/architecture/feature-based/feature-based.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { CustomTemplatesComponent } from './features/layout/custom-templates/custom-templates.component';
 
 export const routes: Routes = [
     {
@@ -19,8 +21,10 @@ export const routes: Routes = [
             { path: 'architecture/MICROKERNEL', component: MicrokernelComponent },
             { path: 'architecture/MVVM', component: MvvmComponent },
             { path: 'architecture/CBA', component: CbaComponent },
-            { path: 'architecture/FEATURE_BASED', component: FeatureBasedComponent }
+            { path: 'architecture/FEATURE_BASED', component: FeatureBasedComponent },
+            { path: 'customtemplates', component: CustomTemplatesComponent }
         ]
     },
-    { path: 'login', component: LoginComponent }
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent }
 ];

@@ -11,5 +11,5 @@ import { MainContentComponent } from "./features/layout/main-content/main-conten
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'archgen-front';
+  title = 'ArchGen';
 }

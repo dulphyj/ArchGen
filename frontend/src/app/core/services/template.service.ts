@@ -19,4 +19,16 @@ export class TemplateService {
   getTemplateByType(type: ArchitectureType): Observable<Template> {
     return this.httpClient.get<Template>(`${this.templateUrl}/type/${type}`);
   }
+
+  getTemplateById(id: string): Observable<Template> {
+    return this.httpClient.get<Template>(`${this.templateUrl}/${id}`);
+  }
+
+  updateTemplate(id: string, template: Template, clerkId: string): Observable<Template> {
+    return this.httpClient.put<Template>(`${this.templateUrl}/clone/${id}?clerkId=${clerkId}`, template);
+  }
+
+  getUserTemplates(clerkId: string): Observable<Template[]> {
+    return this.httpClient.get<Template[]>(`${this.templateUrl}/user/${clerkId}`);
+  }
 }

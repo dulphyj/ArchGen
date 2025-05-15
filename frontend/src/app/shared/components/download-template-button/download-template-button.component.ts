@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ArchitectureType } from '../../../core/models/architecture-type.enum';
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
+import { SessionStorageService } from '../../../core/services/session-storage.service';
 
 @Component({
   selector: 'app-download-template-button',
@@ -11,14 +11,15 @@ import { TemplateService } from '../../../core/services/template.service';
 })
 export class DownloadTemplateButtonComponent implements OnInit {
 
-  @Input() type!: ArchitectureType;
   template: Template | null = null;
   isLoading = true;
+  id!: string;
 
-  constructor(private templateService: TemplateService) { }
+  constructor(private templateService: TemplateService, private sessionStorage: SessionStorageService) { }
 
   ngOnInit(): void {
-    this.templateService.getTemplateByType(this.type).subscribe({
+    this.id = this.sessionStorage.getItem('templateId') || '';
+    this.templateService.getTemplateById(this.id).subscribe({
       next: (template) => {
         this.template = template;
         this.isLoading = false;
@@ -26,7 +27,7 @@ export class DownloadTemplateButtonComponent implements OnInit {
         console.error('Error fetching template:', err);
         this.isLoading = false;
       }
-    })
+    });
   }
 
   downloadTemplate(): void {

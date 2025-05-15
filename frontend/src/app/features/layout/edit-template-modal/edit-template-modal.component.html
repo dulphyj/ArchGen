@@ -1,0 +1,26 @@
+<div class="modal-backdrop" (click)="close()"></div>
+
+<div class="modal-window">
+    <div class="modal-header">
+        <h2>Editar plantilla</h2>
+        <button class="close-btn" (click)="close()">×</button>
+    </div>
+
+    <div class="modal-body">
+        <div class="mb-3">
+            <label>Nombre de la plantilla</label>
+            <input type="text" class="form-control title-template" [(ngModel)]="template.name"
+                placeholder={{template.name}} />
+        </div>
+        <p>estructura</p>
+        <div *ngFor="let folder of template.structure.folders; let i = index">
+            <app-folder-editor [folder]="folder" [depth]="0" (delete)="removeRootFolder(i)"></app-folder-editor>
+        </div>
+        <button class="btn btn-outline-light mt-3" (click)="addRootFolder()">➕ Agregar carpeta raíz</button>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-secondary" (click)="close()">Cancelar</button>
+        <button class="btn btn-primary" (click)="save()">Guardar cambios</button>
+    </div>
+</div>

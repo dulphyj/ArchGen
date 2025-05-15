@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin(origins = "*")
@@ -51,7 +52,7 @@ public class TemplateController {
                 .body(resource);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/clone/{id}")
     public ResponseEntity<Template> editAndCloneTemplate(
             @PathVariable String id,
             @RequestBody Template updatedTemplate,
@@ -89,6 +90,16 @@ public class TemplateController {
         return templateService.findFirstByTypeAndEditFalseAndClerkIdIsNull(type);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Template> getTemplateById(@PathVariable String id) {
+        return templateService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
 
-
+    @GetMapping("/user/{clerkId}")
+    public ResponseEntity<List<Template>> getUserTemplates(@PathVariable String clerkId) {
+        List<Template> templates = templateService.getUserTemplates(clerkId);
+        return ResponseEntity.ok(templates);
+    }
 }

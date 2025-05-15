@@ -1,0 +1,24 @@
+<div class="folder-wrapper">
+    <div class="folder-indent" [ngStyle]="{ 'margin-left.px': depth * 20 }">
+        <div class="folder-editor">
+            <span class="folder-icon">{{
+                folder.subFolders?.length ? "📂" : "📁"
+                }}</span>
+
+            <div class="folder-name">
+                <input type="text" [(ngModel)]="folder.name" placeholder="Nombre de carpeta" class="form-control" />
+            </div>
+
+            <div class="folder-description">
+                <input type="text" [(ngModel)]="folder.description" placeholder="Descripción" class="form-control" />
+            </div>
+            <button class="btn btn-add btn-sm" (click)="addSubfolder()">✚</button>
+            <button class="btn btn-danger btn-sm" (click)="removeSelf()">🗑️</button>
+        </div>
+    </div>
+
+    <div *ngIf="folder.subFolders">
+        <app-folder-editor *ngFor="let sub of folder.subFolders; let i = index" [folder]="sub" [depth]="depth + 1"
+            (delete)="folder.subFolders?.splice(i, 1)"></app-folder-editor>
+    </div>
+</div>

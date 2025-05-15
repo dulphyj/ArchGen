@@ -1,0 +1,55 @@
+.hero,
+.cta {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+}
+
+.feature {
+    max-width: 300px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.how-it-works,
+.auth-benefits,
+.architecture-info {
+    padding: 2rem 1rem;
+    background-color: var(--background-dark);
+    color: var(--text-light);
+    text-align: center;
+
+    h2 {
+        margin-bottom: 1rem;
+    }
+
+    p,
+    ul,
+    ol {
+        max-width: 700px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    ul li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.auth-benefits {
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+}
+
+.btn {
+    margin-top: 1rem;
+}
