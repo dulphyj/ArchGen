@@ -1,34 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { SessionStorageService } from '../../../core/services/session-storage.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-download-template-button',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './download-template-button.component.html',
   styleUrl: './download-template-button.component.css'
 })
-export class DownloadTemplateButtonComponent implements OnInit {
+export class DownloadTemplateButtonComponent implements OnInit, OnChanges {
 
   template: Template | null = null;
   isLoading = true;
-  id!: string;
+  @Input() templateId!: string;
 
   constructor(private templateService: TemplateService, private sessionStorage: SessionStorageService) { }
 
   ngOnInit(): void {
-    this.id = this.sessionStorage.getItem('templateId') || '';
-    this.templateService.getTemplateById(this.id).subscribe({
-      next: (template) => {
-        this.template = template;
-        this.isLoading = false;
-      }, error: (err) => {
-        console.error('Error fetching template:', err);
-        this.isLoading = false;
-      }
-    });
+    this.getTemplate();
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['templateId'] && changes['templateId'].currentValue) {
+      this.getTemplate();
+    }
+  }
+
+  getTemplate() {
+    if (this.templateId) {
+      this.templateService.getTemplateById(this.templateId).subscribe({
+        next: (template) => {
+          this.template = template;
+          this.isLoading = false;
+        }, error: (err) => {
+          console.error('Error fetching template:', err);
+          this.isLoading = true;
+        }
+      });
+    }
+  }
+
+
 
   downloadTemplate(): void {
     if (this.template?.id) {

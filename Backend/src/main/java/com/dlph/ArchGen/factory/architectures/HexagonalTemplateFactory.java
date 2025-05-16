@@ -21,20 +21,22 @@ public class HexagonalTemplateFactory implements TemplateFactory {
 
     @Override
     public Template createTemplate(String name, String clerkId) {
+        String description = "Arquitectura hexagonal (backend) que separa la lógica de negocio, los casos de uso y las implementaciones externas mediante puertos y adaptadores. Ideal para proyectos con enfoque en mantenibilidad, pruebas y escalabilidad.";
         List<Folder> folders = List.of(
-                new Folder("application", "handles use cases", List.of()),
-                new Folder("domain", "contains business logic", List.of(
-                        new Folder("model", "contains domain models", List.of()),
-                        new Folder("port", "contains repository interfaces", List.of())
+                new Folder("application", "maneja los casos de uso", List.of()),
+                new Folder("domain", "contiene la lógica de negocio", List.of(
+                        new Folder("model", "contiene los modelos del dominio", List.of()),
+                        new Folder("port", "contiene las interfaces de repositorio (puertos)", List.of())
                 )),
-                new Folder("infrastructure", "contains implementation of ports", List.of(
-                        new Folder("adapter", "contains adapters", List.of()),
-                        new Folder("rest", "REST API Controllers", List.of())
+                new Folder("infrastructure", "contiene la implementación de los puertos", List.of(
+                        new Folder("adapter", "contiene los adaptadores", List.of()),
+                        new Folder("rest", "controladores de la API REST", List.of())
                 ))
         );
+
         try{
             File zipFile = ZipGenerate.createZipFile(folders, name);
-            return new Template(null, name, ArchitectureType.HEXAGONAL, new ProjectStructure(folders), clerkId, zipFile.getPath(), false);
+            return new Template(null, name, description,ArchitectureType.HEXAGONAL, new ProjectStructure(folders), clerkId, zipFile.getPath(), false);
         } catch (Exception e){
             e.printStackTrace();
             return null;

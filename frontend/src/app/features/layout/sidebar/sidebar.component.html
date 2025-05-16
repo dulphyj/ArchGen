@@ -1,8 +1,14 @@
-<nav class="p-3 text-light">
+<nav class="sidebar p-3">
     <ul class="nav flex-column">
         <li class="nav-item" *ngFor="let type of architectureTypes">
-            <a class="nav-link text-light" (click)="setType(type)">{{type}}</a>
+            <a class="nav-link" (click)="setType(type)" [class.active]="selectedType === type">
+                <i class="bi bi-diagram-3-fill me-2"></i>{{ type }}
+            </a>
         </li>
-        <li class="nav-item"><a class="nav-link text-light" routerLink="/customtemplates">Mis plantillas</a></li>
+        <li class="nav-item mt-3">
+            <a class="nav-link" (click)="setNav()" [class.active]="selectedType === 'nav'">
+                <i class="bi bi-folder-fill me-2"></i>Mis plantillas
+            </a>
+        </li>
     </ul>
 </nav>

@@ -1,55 +1,30 @@
-.hero,
-.cta {
-    text-align: center;
-    padding: 3rem 1rem;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-}
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 0.75rem;
 
-.features {
-    display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    background-color: var(--background-light);
-    color: var(--text-dark);
-}
-
-.feature {
-    max-width: 300px;
-    text-align: center;
-    padding: 1rem;
-}
-
-.how-it-works,
-.auth-benefits,
-.architecture-info {
-    padding: 2rem 1rem;
-    background-color: var(--background-dark);
-    color: var(--text-light);
-    text-align: center;
-
-    h2 {
-        margin-bottom: 1rem;
-    }
-
-    p,
-    ul,
-    ol {
-        max-width: 700px;
-        margin: 0 auto;
-        text-align: left;
-    }
-
-    ul li {
-        margin-bottom: 0.5rem;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     }
 }
 
-.auth-benefits {
-    background-color: var(--secondary-color);
-    color: var(--text-light);
+.btn-light {
+    background-color: var(--light-text);
+    color: var(--primary);
+    border: none;
 }
 
-.btn {
-    margin-top: 1rem;
+.btn-light:hover {
+    background-color: var(--tertiary);
+    color: white;
+}
+
+.btn-outline-light {
+    color: var(--light-text);
+    border-color: var(--light-text);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--light-text);
+    color: var(--secondary);
 }

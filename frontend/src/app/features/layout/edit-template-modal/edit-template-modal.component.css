@@ -8,65 +8,95 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.title-template{
-    width: 25%;
-}
-.modal-backdrop {
+  }
+  
+  .modal-backdrop {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-window {
+  }
+  
+  .modal-window {
     position: relative;
     background-color: #2a2a2a;
     color: var(--light-text);
     padding: 1.5rem;
     border-radius: 8px;
     width: 75%;
-   
     z-index: 1051;
     display: flex;
     flex-direction: column;
-}
-
-.modal-header {
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
-
-    h2 {
-        margin: 0;
+  
+    h3 {
+      margin: 0;
+      color: var(--tertiary);
     }
-
+  
     .close-btn {
-        background: transparent;
-        border: none;
-        color: var(--light-text);
-        font-size: 1.5rem;
-        cursor: pointer;
+      background: transparent;
+      border: none;
+      color: var(--light-text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s;
+  
+      &:hover {
+        color: var(--tertiary);
+      }
     }
-}
-
-.modal-body {
+  }
+  
+  .modal-body {
     flex-grow: 1;
     margin-bottom: 1rem;
-}
-
-.modal-footer {
+  
+    label {
+      color: var(--light-text);
+      font-weight: 500;
+      margin-top: 0.5rem;
+    }
+  }
+  
+  .modal-footer {
     display: flex;
     justify-content: flex-end;
     gap: 0.5rem;
-}
-
-.btn-primary{
-    background-color: var(--primary);
-}
-
-.btn-primary:hover {
+  }
+  
+  .title-template {
+    width: 50%;
+  }
+  
+  .description-template {
+    width: 95%;
+  }
+  
+  .btn-primary {
     background-color: var(--secondary);
-}
+    border: none;
+  
+    &:hover {
+      background-color: var(--tertiary);
+    }
+  }
+  
+  .btn-secondary {
+    background-color: var(--sec-button);
+    color: var(--light-text);
+  
+    &:hover {
+      background-color: var(--tertiary);
+    }
+  }
+  

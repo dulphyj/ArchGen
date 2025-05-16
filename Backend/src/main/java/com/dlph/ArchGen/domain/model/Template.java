@@ -15,6 +15,7 @@ public class Template {
     @Id
     private String id;
     private String name;
+    private String description;
     private ArchitectureType type;
     private ProjectStructure structure;
     private String clerkId;

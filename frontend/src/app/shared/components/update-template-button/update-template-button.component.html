@@ -1,3 +1,6 @@
-<button *ngIf="isAuthenticated" class="btn btn-secondary" (click)="openModal()">Editar estructura</button>
+<button *ngIf="isAuthenticated" class="btn btn-add-template" (click)="openModal()" title="Crear nueva plantilla">
+        <i class="bi bi-file-earmark-plus-fill me-1"></i> Nueva plantilla
+</button>
 
-<app-edit-template-modal *ngIf="showEditModal" (closeModal)="closeModal()"></app-edit-template-modal>
+<app-edit-template-modal *ngIf="showEditModal" (closeModal)="closeModal()"
+        [templateId]="templateId"></app-edit-template-modal>

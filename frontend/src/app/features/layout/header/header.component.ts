@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 export class HeaderComponent {
 
   isAuthenticated: boolean = false;
+  user: string = "juan";
   logout() {
     throw new Error('Method not implemented.');
   }

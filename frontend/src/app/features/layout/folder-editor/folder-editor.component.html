@@ -1,24 +1,33 @@
 <div class="folder-wrapper">
-    <div class="folder-indent" [ngStyle]="{ 'margin-left.px': depth * 20 }">
+    <div class="folder-indent">
         <div class="folder-editor">
-            <span class="folder-icon">{{
-                folder.subFolders?.length ? "📂" : "📁"
-                }}</span>
+            <span class="folder-icon">
+                {{ folder.subFolders?.length ? '📂' : '📁' }}
+            </span>
 
-            <div class="folder-name">
+            <div class="folder-name"
+                [ngStyle]="{ transform: 'scale(' + (1 - depth * 0.045) + ')', 'transform-origin': 'right top' }">
                 <input type="text" [(ngModel)]="folder.name" placeholder="Nombre de carpeta" class="form-control" />
             </div>
 
             <div class="folder-description">
                 <input type="text" [(ngModel)]="folder.description" placeholder="Descripción" class="form-control" />
             </div>
-            <button class="btn btn-add btn-sm" (click)="addSubfolder()">✚</button>
-            <button class="btn btn-danger btn-sm" (click)="removeSelf()">🗑️</button>
+
+            <button class="btn btn-add btn-sm" (click)="addSubfolder()"
+                [title]="'Agregar subcarpeta a: ' + folder.name">
+                <i class="bi bi-plus-lg"></i><span class="visually-hidden">.</span>
+            </button>
+
+            <button class="btn btn-danger btn-sm" (click)="removeSelf()" [title]="'Eliminar carpeta ' + folder.name">
+                <i class="bi bi-recycle"></i><span class="visually-hidden">.</span>
+            </button>
         </div>
     </div>
 
     <div *ngIf="folder.subFolders">
         <app-folder-editor *ngFor="let sub of folder.subFolders; let i = index" [folder]="sub" [depth]="depth + 1"
-            (delete)="folder.subFolders?.splice(i, 1)"></app-folder-editor>
+            (delete)="folder.subFolders?.splice(i, 1)">
+        </app-folder-editor>
     </div>
 </div>

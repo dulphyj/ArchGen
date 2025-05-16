@@ -6,7 +6,7 @@ import { FooterComponent } from "../../features/layout/footer/footer.component";
 
 @Component({
   selector: 'app-shell',
-  imports: [HeaderComponent, SidebarComponent, MainContentComponent],
+  imports: [HeaderComponent, SidebarComponent, MainContentComponent, FooterComponent],
   templateUrl: './shell.component.html',
   styleUrl: './shell.component.css'
 })

@@ -31,4 +31,16 @@ export class TemplateService {
   getUserTemplates(clerkId: string): Observable<Template[]> {
     return this.httpClient.get<Template[]>(`${this.templateUrl}/user/${clerkId}`);
   }
+
+  createTemplate(type: ArchitectureType, name: string, clerkId?: string): Observable<Template> {
+    const params: any = { type, name };
+    if (clerkId) {
+      params.clerkId = clerkId;
+    }
+    return this.httpClient.post<Template>(`${this.templateUrl}/generate`, null, { params })
+  }
+
+  deleteTemplate(id: string): Observable<any> {
+    return this.httpClient.delete(`${this.templateUrl}/delete/${id}`)
+  }
 }

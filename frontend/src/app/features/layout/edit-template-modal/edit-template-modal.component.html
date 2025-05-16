@@ -1,26 +1,43 @@
-<div class="modal-backdrop" (click)="close()"></div>
+<ng-container *ngIf="template">
+    <div class="modal-backdrop" (click)="close()"></div>
 
-<div class="modal-window">
-    <div class="modal-header">
-        <h2>Editar plantilla</h2>
-        <button class="close-btn" (click)="close()">×</button>
-    </div>
-
-    <div class="modal-body">
-        <div class="mb-3">
-            <label>Nombre de la plantilla</label>
-            <input type="text" class="form-control title-template" [(ngModel)]="template.name"
-                placeholder={{template.name}} />
+    <div class="modal-window">
+        <!-- Header -->
+        <div class="modal-header">
+            <h3>Arquitectura: {{ template.type }}</h3>
+            <button class="close-btn" (click)="close()">×</button>
         </div>
-        <p>estructura</p>
-        <div *ngFor="let folder of template.structure.folders; let i = index">
-            <app-folder-editor [folder]="folder" [depth]="0" (delete)="removeRootFolder(i)"></app-folder-editor>
-        </div>
-        <button class="btn btn-outline-light mt-3" (click)="addRootFolder()">➕ Agregar carpeta raíz</button>
-    </div>
 
-    <div class="modal-footer">
-        <button class="btn btn-secondary" (click)="close()">Cancelar</button>
-        <button class="btn btn-primary" (click)="save()">Guardar cambios</button>
+        <!-- Body -->
+        <div class="modal-body">
+            <div class="mb-3">
+                <label>Nombre de plantilla</label>
+                <input type="text" class="form-control title-template" [(ngModel)]="template.name" title="nombre" />
+
+                <label>Descripción</label>
+                <input type="text" class="form-control description-template" [(ngModel)]="template.description"
+                    title="desc" />
+            </div>
+
+            <p class="mt-3">Estructura</p>
+            <div *ngFor="let folder of template.structure.folders; let i = index">
+                <app-folder-editor [folder]="folder" [depth]="0" (delete)="removeRootFolder(i)"></app-folder-editor>
+            </div>
+
+            <button class="btn btn-outline-light mt-3" (click)="addRootFolder()">
+                <i class="bi bi-folder-plus me-1"></i> Agregar carpeta raíz
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer">
+            <button class="btn btn-secondary" (click)="close()">
+                <i class="bi bi-x-circle" title="Cancelar"></i>
+            </button>
+            <button class="btn btn-primary" (click)="save()">
+                <i class="bi bi-floppy-fill" title="Guardar"></i>
+            </button>
+            <app-download-template-button [templateId]="newTemplateId" (click)="close()"></app-download-template-button>
+        </div>
     </div>
-</div>
+</ng-container>

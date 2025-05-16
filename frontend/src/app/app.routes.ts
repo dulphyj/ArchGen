@@ -9,7 +9,7 @@ import { MvvmComponent } from './pages/architecture/mvvm/mvvm.component';
 import { CbaComponent } from './pages/architecture/cba/cba.component';
 import { FeatureBasedComponent } from './pages/architecture/feature-based/feature-based.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { CustomTemplatesComponent } from './features/layout/custom-templates/custom-templates.component';
+import { CustomTemplatesComponent } from './pages/custom-templates/custom-templates.component';
 
 export const routes: Routes = [
     {

@@ -1,4 +1,5 @@
 <h2>Arquitectura MVVM</h2>
-
-<app-download-template-button></app-download-template-button>
-<app-update-template-button />
+<ng-container *ngIf="template">
+    <app-download-template-button [templateId]="template.id"></app-download-template-button>
+    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+</ng-container>

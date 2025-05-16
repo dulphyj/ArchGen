@@ -4,6 +4,7 @@ import { ArchitectureType } from './architecture-type.enum';
 export interface Template {
     id: string;
     name: string;
+    description: string;
     type: ArchitectureType;
     structure: ProjectStructure;
     clerkId: string | null;

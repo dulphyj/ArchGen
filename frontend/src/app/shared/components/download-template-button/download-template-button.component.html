@@ -1,3 +1,6 @@
-<button class="btn-custom" (click)="downloadTemplate()" [disabled]="isLoading || !template">
-    {{ isLoading ? 'Cargando...' : 'Descargar estructura' }}
+<button class="btn btn-download-template" (click)="downloadTemplate()" [disabled]="isLoading || !template"
+    title="Descargar plantilla">
+    <i *ngIf="isLoading" class="bi bi-arrow-repeat icon-rotate icon-lg"></i>
+    <i *ngIf="!isLoading" class="bi bi-download icon-lg"></i>
+    <span class="d-none d-sm-inline"> Descargar</span>
 </button>

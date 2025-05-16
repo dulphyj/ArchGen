@@ -1,9 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ArchitectureType } from '../../../core/models/architecture-type.enum';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { SessionStorageService } from '../../../core/services/session-storage.service';
-import { TemplateService } from '../../../core/services/template.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,19 +13,18 @@ export class SidebarComponent {
 
   architectureTypes = Object.values(ArchitectureType);
   type!: ArchitectureType;
+  @Input() selectedType: string = '';
 
-  constructor(private sessionStorage: SessionStorageService, private templateService: TemplateService, private router: Router) { }
+  constructor(private router: Router) { }
 
   setType(type: ArchitectureType) {
+    this.selectedType = type;
     this.type = type;
-    this.templateService.getTemplateByType(type)
-      .subscribe({
-        next: template => {
-          this.sessionStorage.setItem('templateId', template.id);
-          this.router.navigate(['/architecture', type]);
-        }, error: err => {
-          console.error('Error fetching template:', err);
-        }
-      })
+    this.router.navigate(['/architecture', type]);
+  }
+
+  setNav() {
+    this.selectedType = "nav";
+    this.router.navigate(['/customtemplates']);
   }
 }

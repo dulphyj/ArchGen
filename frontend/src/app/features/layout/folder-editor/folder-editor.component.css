@@ -2,27 +2,40 @@
     width: 100%;
 }
 
+.folder-indent {
+    padding-left: calc(1.5rem * var(--depth, 1));
+}
+
 .folder-editor {
     display: flex;
     align-items: center;
     gap: 1rem;
-    width: 95%;
-    margin-bottom: 0.5rem;
-}
-
-.folder-name {
-    flex: 20%;
-}
-
-.folder-description {
-    flex: 75%;
-}
-
-.btn-add {
-    color: aliceblue;
-    background-color: var(--primary);
+    width: 100%;
+    margin-bottom: 0.75rem;
+    background-color: #3a3a3a;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary);
 }
 
 .folder-icon {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+}
+
+.folder-name {
+    flex: 2;
+}
+
+.folder-description {
+    flex: 5;
+}
+
+.btn-add {
+    background-color: var(--primary);
+    color: var(--light-text);
+    border: none;
+
+    &:hover {
+        background-color: var(--tertiary);
+    }
 }

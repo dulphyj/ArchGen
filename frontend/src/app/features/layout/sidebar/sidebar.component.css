@@ -13,6 +13,11 @@ nav {
 
 .nav-link {
     color: var(--light-text) !important;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
     transition: background-color 0.3s, color 0.3s;
 
     &:hover {
@@ -24,4 +29,8 @@ nav {
         background-color: var(--primary);
         color: var(--light-text) !important;
     }
+}
+
+a:hover {
+    cursor: pointer;
 }

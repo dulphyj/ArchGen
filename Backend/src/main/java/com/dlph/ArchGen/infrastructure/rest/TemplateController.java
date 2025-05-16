@@ -7,6 +7,7 @@ import com.dlph.ArchGen.factory.ZipGenerate;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +68,7 @@ public class TemplateController {
                 .map(original -> {
                     Template newTemplate = new Template();
                     newTemplate.setName(updatedTemplate.getName());
+                    newTemplate.setDescription(updatedTemplate.getDescription());
                     newTemplate.setType(updatedTemplate.getType());
                     newTemplate.setStructure(updatedTemplate.getStructure());
                     newTemplate.setClerkId(clerkId);
@@ -101,5 +103,11 @@ public class TemplateController {
     public ResponseEntity<List<Template>> getUserTemplates(@PathVariable String clerkId) {
         List<Template> templates = templateService.getUserTemplates(clerkId);
         return ResponseEntity.ok(templates);
+    }
+
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<HttpStatus> deleteTemplate(@PathVariable String id){
+        templateService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 }
