@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit, Signal, signal } from '@angular/core';
 import { EditTemplateModalComponent } from "../../../features/layout/edit-template-modal/edit-template-modal.component";
+import { ClerkService } from 'ngx-clerk-iliad';
+import { AuthService } from '../../../core/services/auth.service';
+import { SessionStorageService } from '../../../core/services/session-storage.service';
 @Component({
   selector: 'app-update-template-button',
   imports: [CommonModule, EditTemplateModalComponent],
@@ -8,8 +11,13 @@ import { EditTemplateModalComponent } from "../../../features/layout/edit-templa
   styleUrl: './update-template-button.component.css'
 })
 export class UpdateTemplateButtonComponent {
+  private auth = inject(AuthService);
+  private storage = inject(SessionStorageService);
+
+  isAuthenticated: Signal<boolean> = this.auth.isAuthenticated;
+  userName: string = this.storage.getItem('userName');
+
   showEditModal = false;
-  isAuthenticated = "123";
   @Input() templateId!: string;
 
   openModal() {

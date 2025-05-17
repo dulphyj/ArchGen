@@ -10,6 +10,8 @@ import { CbaComponent } from './pages/architecture/cba/cba.component';
 import { FeatureBasedComponent } from './pages/architecture/feature-based/feature-based.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CustomTemplatesComponent } from './pages/custom-templates/custom-templates.component';
+import { catchAllRoute } from 'ngx-clerk-iliad';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -22,7 +24,7 @@ export const routes: Routes = [
             { path: 'architecture/MVVM', component: MvvmComponent },
             { path: 'architecture/CBA', component: CbaComponent },
             { path: 'architecture/FEATURE_BASED', component: FeatureBasedComponent },
-            { path: 'customtemplates', component: CustomTemplatesComponent }
+            { path: 'customtemplates', component: CustomTemplatesComponent, canActivate: [authGuard] }
         ]
     },
     { path: 'login', component: LoginComponent },

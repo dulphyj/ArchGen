@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { Template } from '../../core/models/template.model';
 import { TemplateService } from '../../core/services/template.service';
-import { SessionStorageService } from '../../core/services/session-storage.service';
 import { DownloadTemplateButtonComponent } from "../../shared/components/download-template-button/download-template-button.component";
+import { AuthService } from '../../core/services/auth.service';
+import { SessionStorageService } from '../../core/services/session-storage.service';
 
 @Component({
   selector: 'app-custom-templates',
@@ -12,25 +13,32 @@ import { DownloadTemplateButtonComponent } from "../../shared/components/downloa
   styleUrl: './custom-templates.component.css'
 })
 export class CustomTemplatesComponent implements OnInit {
+  private auth = inject(AuthService);
+  private storage = inject(SessionStorageService);
+
+  isAuthenticated: Signal<boolean> = this.auth.isAuthenticated;
+  clerkId: string = this.storage.getItem('clerkId');
 
   templates: Template[] = [];
-  clerkId: string = "123";
 
-  constructor(private tempalteService: TemplateService, private sessionStorage: SessionStorageService) { }
+
+  constructor(private tempalteService: TemplateService) { }
 
   ngOnInit(): void {
     this.getUserTemplates();
   }
 
   getUserTemplates() {
-    this.tempalteService.getUserTemplates(this.clerkId).subscribe({
-      next: (templates) => {
-        this.templates = templates;
-      },
-      error: (error) => {
-        console.error('Error al obtener las plantillas:', error);
-      }
-    });
+    if (this.clerkId) {
+      this.tempalteService.getUserTemplates(this.clerkId).subscribe({
+        next: (templates) => {
+          this.templates = templates;
+        },
+        error: (error) => {
+          console.error('Error al obtener las plantillas:', error);
+        }
+      });
+    }
   }
 
   deleteTemplate(id: string) {
@@ -43,6 +51,5 @@ export class CustomTemplatesComponent implements OnInit {
           console.log("Error al eliminar plantilla", err);
         }
       });
-
   }
 }

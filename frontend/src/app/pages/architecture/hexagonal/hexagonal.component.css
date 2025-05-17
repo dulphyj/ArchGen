@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+/* Estilo para los hexágonos */
+.hexagon {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background-color: #4CAF50;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+}
+
+.central {
+    top: 140px;
+    left: 140px;
+    background-color: #333;
+}
+
+.content {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Posiciones de los puertos y adaptadores */
+.port {
+    position: absolute;
+}
+
+.north {
+    top: 20px;
+    left: 150px;
+}
+
+.east {
+    top: 150px;
+    left: 270px;
+}
+
+.south-east {
+    top: 270px;
+    left: 230px;
+}
+
+.south {
+    top: 270px;
+    left: 150px;
+}
+
+.south-west {
+    top: 270px;
+    left: 70px;
+}
+
+.west {
+    top: 150px;
+    left: 20px;
+}

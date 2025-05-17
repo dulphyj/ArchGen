@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "./features/layout/header/header.component";
-import { SidebarComponent } from "./features/layout/sidebar/sidebar.component";
-import { MainContentComponent } from "./features/layout/main-content/main-content.component";
+import { ClerkService } from 'ngx-clerk-iliad';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +10,16 @@ import { MainContentComponent } from "./features/layout/main-content/main-conten
 })
 export class AppComponent {
   title = 'ArchGen';
+  constructor(private _clerk: ClerkService) {
+    this._clerk.__init({
+      publishableKey: 'pk_test_cXVpY2stZWxlcGhhbnQtNTAuY2xlcmsuYWNjb3VudHMuZGV2JA'
+    })
+    this._clerk.clerk$.subscribe(clerk => {
+      if (clerk) {
+        console.log('Clerk ha cargado correctamente');
+      } else {
+        console.error('Clerk no se ha cargado');
+      }
+    });
+  }
 }

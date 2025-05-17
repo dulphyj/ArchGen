@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output, Signal } from '@angular/core';
 import { TemplateService } from '../../../core/services/template.service';
 import { Template } from '../../../core/models/template.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FolderEditorComponent } from "../folder-editor/folder-editor.component";
 import { DownloadTemplateButtonComponent } from "../../../shared/components/download-template-button/download-template-button.component";
+import { SessionStorageService } from '../../../core/services/session-storage.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-edit-template-modal',
@@ -13,13 +15,16 @@ import { DownloadTemplateButtonComponent } from "../../../shared/components/down
   styleUrl: './edit-template-modal.component.css'
 })
 export class EditTemplateModalComponent implements OnInit {
+  private auth = inject(AuthService);
+  private storage = inject(SessionStorageService);
+
+  clerkId: string = this.storage.getItem('clerkId');
 
   @Output() closeModal = new EventEmitter<void>();
   @Input() templateId!: string;
   newTemplateId!: string;
 
   template!: Template;
-  clerkId!: string;
 
   constructor(private tempalteService: TemplateService) { }
 
@@ -39,7 +44,7 @@ export class EditTemplateModalComponent implements OnInit {
   }
 
   save(): void {
-    this.tempalteService.updateTemplate(this.template.id, this.template, "123").subscribe({
+    this.tempalteService.updateTemplate(this.template.id, this.template, this.clerkId).subscribe({
       next: (response) => {
         this.newTemplateId = response.id;
         this.template.name = response.name;

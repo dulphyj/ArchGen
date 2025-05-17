@@ -16,7 +16,5 @@ import java.util.List;
 public class User {
     @Id
     private String id;
-    private String email;
     private String clerkId;
-    private List<Template> templates;
 }
