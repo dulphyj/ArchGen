@@ -1,0 +1,60 @@
+<div class="cba-layered-diagram d-flex flex-column align-items-center position-relative">
+    <!-- SVG de conexiones -->
+    <svg class="cba-lines" width="100%" height="100%">
+        <!-- layout -> components -->
+        <line x1="50%" y1="60" x2="50%" y2="150" class="line-connection" />
+        <!-- components -> common -->
+        <line x1="50%" y1="200" x2="30%" y2="280" class="line-connection" />
+        <!-- components -> pages -->
+        <line x1="50%" y1="200" x2="70%" y2="280" class="line-connection" />
+        <!-- pages -> services -->
+        <line x1="70%" y1="340" x2="300%" y2="-50" class="line-connection dashed" />
+        <!-- services -> states -->
+        <line x1="50%" y1="350" x2="50%" y2="475" class="line-connection dashed" />
+        <!-- styles -> layout -->
+        <line x1="50%" y1="80" x2="45%" y2="530" class="line-connection dashed" />
+    </svg>
+
+    <!-- layout -->
+    <div class="cba-box layout" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-cba"
+        title="🧱 Layout: Estructura visual y navegación principal de la aplicación.">
+        layout
+    </div>
+
+    <!-- components -->
+    <div class="cba-box components mt-3" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="tooltip-cba" title="🔧 Components: Piezas reutilizables e independientes de UI.">
+        components
+    </div>
+
+    <!-- fila: common + pages -->
+    <div class="d-flex flex-row gap-4 mt-3">
+        <div class="cba-box common" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-cba"
+            title="📦 Common: Utilidades y componentes genéricos compartidos.">
+            common
+        </div>
+        <div class="cba-box pages" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-cba"
+            title="📄 Pages: Vistas principales de cada sección o ruta.">
+            pages
+        </div>
+    </div>
+
+    <!-- services -->
+    <div class="cba-box services mt-3" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="tooltip-cba"
+        title="⚙️ Services: Lógica de negocio, llamadas HTTP y comunicación con el backend.">
+        services
+    </div>
+
+    <!-- states -->
+    <div class="cba-box states mt-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-cba"
+        title="🧠 States: Gestión del estado global o local.">
+        states
+    </div>
+
+    <!-- styles -->
+    <div class="cba-box styles mt-3" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-cba"
+        title="🎨 Styles: Variables, temas y estilos reutilizables.">
+        styles
+    </div>
+</div>

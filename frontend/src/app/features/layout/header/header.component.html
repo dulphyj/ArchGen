@@ -1,15 +1,25 @@
-<header class="app-header">
-    <a routerLink="/" class="logo">ArchGen</a>
+<header class="app-header py-2">
+    <a routerLink="/" class="logo logo-box bg-primary text-light-text me-1">AG</a>
 
-    <div class="auth-actions">
+    <div class="auth-actions p-3">
         <a *ngIf="!isAuthenticated()" routerLink="/login" class="d-flex align-items-center">
             <i class="bi bi-box-arrow-in-right me-1"></i> Login
         </a>
         <ng-container *ngIf="isAuthenticated()">
-            <a (click)="logout()" class="btn btn-sm ms-2 d-flex align-items-center">
-                <i class="bi bi-box-arrow-left me-1 "></i> Logout
-            </a>
-            <span class="ms-3">Hola, {{ userName }}</span>
+            <div class="d-flex align-items-center gap-2 p-3  mb-2">
+                <div>
+                    <img *ngIf="userImage()" [src]="userImage()" alt="Avatar" class="rounded-circle" width="40"
+                        height="40" />
+                </div>
+                <div class="d-flex flex-column">
+                    <a (click)="logout()" class="btn btn-sm d-flex align-items-center fw-semibold fs-6">
+                        <i class="bi bi-box-arrow-left me-0"></i> Logout
+                    </a>
+                    <span class="ms-3">Hola {{ userName() }}</span>
+                </div>
+            </div>
         </ng-container>
+
+
     </div>
 </header>

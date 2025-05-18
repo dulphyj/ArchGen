@@ -38,3 +38,22 @@
         transform: rotate(360deg);
     }
 }
+
+.highlighted {
+    animation: pulse 1.5s infinite;
+    border: 2px solid #ff9800;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.822);
+    }
+
+    70% {
+        box-shadow: 0 0 0 30px rgba(255, 152, 0, 0);
+    }
+
+    100% {
+        box-shadow: 0 0  0 rgba(25, 0, 255, 0);
+    }
+}

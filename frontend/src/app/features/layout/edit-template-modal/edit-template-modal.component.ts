@@ -15,7 +15,7 @@ import { AuthService } from '../../../core/services/auth.service';
   styleUrl: './edit-template-modal.component.css'
 })
 export class EditTemplateModalComponent implements OnInit {
-  private auth = inject(AuthService);
+
   private storage = inject(SessionStorageService);
 
   clerkId: string = this.storage.getItem('clerkId');
@@ -25,15 +25,17 @@ export class EditTemplateModalComponent implements OnInit {
   newTemplateId!: string;
 
   template!: Template;
+  inputValue: string = '';
 
-  constructor(private tempalteService: TemplateService) { }
+  constructor(private templateService: TemplateService) { }
 
   ngOnInit(): void {
     this.getTemplateById();
+    this.inputValue = '';
   }
 
   getTemplateById() {
-    this.tempalteService.getTemplateById(this.templateId).subscribe({
+    this.templateService.getTemplateById(this.templateId).subscribe({
       next: (template) => {
         this.template = template;
       },
@@ -44,7 +46,7 @@ export class EditTemplateModalComponent implements OnInit {
   }
 
   save(): void {
-    this.tempalteService.updateTemplate(this.template.id, this.template, this.clerkId).subscribe({
+    this.templateService.updateTemplate(this.template.id, this.template, this.clerkId).subscribe({
       next: (response) => {
         this.newTemplateId = response.id;
         this.template.name = response.name;
@@ -74,4 +76,11 @@ export class EditTemplateModalComponent implements OnInit {
   close(): void {
     this.closeModal.emit();
   }
+
+  onBlur() {
+    if (this.inputValue.trim() !== '') {
+      this.template.description = this.inputValue;
+    }
+  }
+
 }

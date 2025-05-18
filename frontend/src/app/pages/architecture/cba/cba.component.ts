@@ -5,10 +5,12 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { CbaDiagramComponent } from "../../../features/layout/architectures-diagrams/cba-diagram/cba-diagram.component";
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
 
 @Component({
   selector: 'app-cba',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, CbaDiagramComponent, FileStructureComponent],
   templateUrl: './cba.component.html',
   styleUrl: './cba.component.css'
 })
@@ -16,6 +18,7 @@ export class CbaComponent implements OnInit {
 
   arch = ArchitectureType.CBA;
   template!: Template;
+  title: string = 'Arquitectura CBA';
 
   constructor(private tempalteService: TemplateService) { }
 

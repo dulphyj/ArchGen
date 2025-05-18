@@ -1,5 +1,42 @@
-<h2>Arquitectura FEATURE BASED</h2>
-<ng-container *ngIf="template">
-    <app-download-template-button [templateId]="template.id"></app-download-template-button>
-    <app-update-template-button [templateId]="template.id"></app-update-template-button>
-</ng-container>
+<!--Título -->
+<header class="container-fluid d-flex align-items-center justify-content-center">
+    <h2 class="h4 m-0">{{title}}</h2>
+</header>
+<!-- Secciones-->
+<div class="container-fluid">
+    <div class="row main-content">
+        <!-- Columna Izquierda -->
+        <main class="col-9 d-flex flex-column p-0">
+            <!-- diagrama -->
+            <section class="content-section flex-grow-1 p-4">
+                <div class="container">
+                    <app-feature-based-diagram />
+                </div>
+            </section>
+            <!--Descripción -->
+            <section class="description-section p-4">
+                <p>La arquitectura modular en Angular promueve la organización del código en módulos independientes,
+                    facilitando la
+                    escalabilidad, el mantenimiento y la reutilización. Cada módulo se enfoca en una funcionalidad
+                    específica, encapsulando
+                    componentes, directivas, pipes y servicios relacionados. Esto permite una carga perezosa (lazy
+                    loading) de módulos,
+                    mejorando el rendimiento de la aplicación al cargar solo el código necesario. La modularización
+                    también simplifica las
+                    pruebas unitarias y la colaboración en equipos de desarrollo.</p>
+            </section>
+
+        </main>
+        <!-- estructura -->
+        <aside class="col-3 p-4">
+            <ng-container *ngIf="template">
+                <app-file-structure [templateId]="template.id" />
+                <div class="d-flex justify-content-end gap-2">
+                    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+                    <app-download-template-button [templateId]="template.id"></app-download-template-button>
+                </div>
+            </ng-container>
+        </aside>
+
+    </div>
+</div>

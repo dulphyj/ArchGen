@@ -1,0 +1,74 @@
+.mvc-diagram {
+    gap: 1rem;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+}
+
+.mvc-box {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    min-width: 200px;
+    box-shadow:
+            0 4px 12px rgba(0, 0, 0, 0.2),
+            inset 0 1px 2px rgba(255, 255, 255, 0.1),
+            inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+        background-image: linear-gradient(to bottom right,
+                rgba(255, 255, 255, 0.05),
+                rgba(0, 0, 0, 0.1));
+        transition: transform 0.2s;
+}
+
+.mvc-box:hover{
+    transform: scale(1.03);
+}
+
+
+.controller {
+    background-color: #3498db;
+}
+
+.service {
+    background-color: #9b59b6;
+}
+
+.model {
+    background-color: #1abc9c;
+}
+
+.repository {
+    background-color: #f39c12;
+}
+
+.view {
+    background-color: #e74c3c;
+}
+
+.mvc-inner {
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.mvc-flow {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Tooltip personalizado */
+.tooltip-mvc {
+    background-color: #2c3e50;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 240px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.tooltip-inner {
+    white-space: normal;
+}

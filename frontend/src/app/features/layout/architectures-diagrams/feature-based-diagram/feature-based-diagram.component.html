@@ -1,0 +1,53 @@
+<div class="feature-architecture d-flex flex-column align-items-center position-relative">
+    <!-- SVG de conexiones -->
+    <svg class="feature-lines" width="100%" height="100%">
+        <!-- features -> shared -->
+        <line x1="10%" y1="150" x2="50%" y2="240" class="line-connection" />
+        <line x1="50%" y1="140" x2="50%" y2="240" class="line-connection" />
+        <line x1="100%" y1="140" x2="50%" y2="240" class="line-connection" />
+        <!-- shared -> core -->
+        <line x1="50%" y1="200" x2="50%" y2="300" class="line-connection dashed" />
+        <!-- core -> environments -->
+        <line x1="50%" y1="300" x2="20%" y2="460" class="line-connection dashed" />
+        <!-- core -> assets -->
+        <line x1="50%" y1="300" x2="80%" y2="460" class="line-connection dashed" />
+    </svg>
+
+    <!-- fila de features -->
+    <div class="d-flex flex-row gap-4">
+        <div class="feature-box feature" data-bs-toggle="tooltip"
+            title="🔐 Módulo de autenticación: login, registro, etc.">
+            auth
+        </div>
+        <div class="feature-box feature" data-bs-toggle="tooltip"
+            title="🛒 Módulo de productos: catálogo, detalles, etc.">
+            products
+        </div>
+        <div class="feature-box feature" data-bs-toggle="tooltip"
+            title="👤 Módulo de usuarios: perfil, configuración, etc.">
+            users
+        </div>
+    </div>
+
+    <!-- shared -->
+    <div class="feature-box shared mt-3" data-bs-toggle="tooltip"
+        title="📦 Shared: Componentes, pipes y servicios reutilizables.">
+        shared
+    </div>
+
+    <!-- core -->
+    <div class="feature-box core mt-3" data-bs-toggle="tooltip"
+        title="🧠 Core: Configuración global, interceptores, guards, etc.">
+        core
+    </div>
+
+    <!-- fila: environments y assets -->
+    <div class="d-flex flex-row gap-4 mt-3">
+        <div class="feature-box environments" data-bs-toggle="tooltip" title="🌍 Variables de entorno por ambiente.">
+            environments
+        </div>
+        <div class="feature-box assets" data-bs-toggle="tooltip" title="🎨 Archivos estáticos, imágenes, íconos, etc.">
+            assets
+        </div>
+    </div>
+</div>

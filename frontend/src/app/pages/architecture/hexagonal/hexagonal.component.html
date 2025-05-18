@@ -1,73 +1,46 @@
-<h2>Arquitectura Hexagonal</h2>
-<ng-container *ngIf="template">
-    <app-download-template-button [templateId]="template.id"></app-download-template-button>
-    <app-update-template-button [templateId]="template.id"></app-update-template-button>
-</ng-container>
-
-
-<body>
-    <div class="container">
-        <!-- Hexágono Central -->
-        <div class="hexagon central">
-            <div class="content">
-                <h2>Core Domain</h2>
-                <p>Dominio Central</p>
-            </div>
-        </div>
-
-        <!-- Puertos y Adaptadores -->
-        <div class="port north">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Norte</h3>
-                    <p>Adaptador</p>
+<!--Título -->
+<header class="container-fluid d-flex align-items-center justify-content-center">
+    <h2 class="h4 m-0">{{title}}</h2>
+</header>
+<!-- Secciones-->
+<div class="container-fluid">
+    <div class="row main-content">
+        <!-- Columna Izquierda -->
+        <main class="col-9 d-flex flex-column p-0">
+            <!-- diagrama -->
+            <section class="content-section flex-grow-1 p-4">
+                <div class="container">
+                    <app-hexagonal-diagram />
                 </div>
-            </div>
-        </div>
+            </section>
+            <!--Descripción -->
+            <section class="description-section p-4">
+                <p>La Arquitectura Hexagonal, también conocida como Arquitectura de Puertos y Adaptadores, es un patrón
+                    de diseño de
+                    software que tiene como objetivo crear aplicaciones altamente desacopladas y fáciles de mantener. Se
+                    centra en separar
+                    la lógica principal del negocio de los detalles de la infraestructura, como la interfaz de usuario,
+                    bases de datos y
+                    sistemas externos. Esto se logra definiendo 'puertos' (interfaces) que representan las interacciones
+                    con el núcleo de la
+                    aplicación y 'adaptadores' que implementan estos puertos, permitiendo así la conexión con diferentes
+                    tecnologías sin
+                    afectar la lógica principal. El resultado es una arquitectura más flexible y adaptable a los
+                    cambios.</p>
+            </section>
 
-        <div class="port east">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Este</h3>
-                    <p>Adaptador</p>
+        </main>
+        <!-- estructura -->
+        <aside class="col-3 p-4">
+            <ng-container *ngIf="template">
+                <app-file-structure [templateId]="template.id" />
+                <div class="d-flex justify-content-end gap-2">
+                    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+                    <app-download-template-button [templateId]="template.id"
+                        [highlight]="highlightButton"></app-download-template-button>
                 </div>
-            </div>
-        </div>
+            </ng-container>
+        </aside>
 
-        <div class="port south-east">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Sureste</h3>
-                    <p>Adaptador</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="port south">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Sur</h3>
-                    <p>Adaptador</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="port south-west">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Suroeste</h3>
-                    <p>Adaptador</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="port west">
-            <div class="hexagon">
-                <div class="content">
-                    <h3>Puerto Oeste</h3>
-                    <p>Adaptador</p>
-                </div>
-            </div>
-        </div>
     </div>
-</body>
+</div>

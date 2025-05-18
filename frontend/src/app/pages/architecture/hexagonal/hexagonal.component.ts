@@ -5,21 +5,30 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
+import { HexagonalDiagramComponent } from "../../../features/layout/architectures-diagrams/hexagonal-diagram/hexagonal-diagram.component";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-hexagonal',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, FileStructureComponent, HexagonalDiagramComponent],
   templateUrl: './hexagonal.component.html',
   styleUrl: './hexagonal.component.css'
 })
 export class HexagonalComponent implements OnInit {
   arch = ArchitectureType.HEXAGONAL;
   template!: Template;
+  title: string = 'Arquitectura Hexagonal';
 
-  constructor(private tempalteService: TemplateService) { }
+  highlightButton = false;
+
+  constructor(private tempalteService: TemplateService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.getTemplateByArch();
+    this.route.queryParams.subscribe(params => {
+      this.highlightButton = params['highlightButton'] === 'true';
+    });
   }
 
   getTemplateByArch() {

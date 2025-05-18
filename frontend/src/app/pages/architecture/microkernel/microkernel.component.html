@@ -1,5 +1,44 @@
-<h2>Arquitectura Microkernel</h2>
-<ng-container *ngIf="template">
-    <app-download-template-button [templateId]="template.id"></app-download-template-button>
-    <app-update-template-button [templateId]="template.id"></app-update-template-button>
-</ng-container>
+<!--Título -->
+<header class="container-fluid d-flex align-items-center justify-content-center">
+    <h2 class="h4 m-0">{{title}}</h2>
+</header>
+<!-- Secciones-->
+<div class="container-fluid">
+    <div class="row main-content">
+        <!-- Columna Izquierda -->
+        <main class="col-9 d-flex flex-column p-0">
+            <!-- diagrama -->
+            <section class="content-section flex-grow-1 p-4">
+                <div class="container">
+                    <app-microkernel-diagram />
+                </div>
+            </section>
+            <!--Descripción -->
+            <section class="description-section p-4">
+                <p>La arquitectura microkernel es un enfoque en el diseño de sistemas operativos que se centra en
+                    reducir el núcleo del
+                    sistema a sus funciones más básicas, delegando otros servicios a procesos que operan en el espacio
+                    de usuario. Esto
+                    incluye la gestión del espacio de direcciones, la gestión de procesos y la comunicación entre
+                    procesos (IPC). La
+                    arquitectura microkernel permite crear aplicaciones extensibles mediante la adición de pequeños
+                    plugins que amplían la
+                    funcionalidad del sistema. Además, se basa en dos componentes básicos: un sistema core y sus módulos
+                    plugin, donde el
+                    sistema core resuelve la problemática de la manera más mínima posible.</p>
+            </section>
+
+        </main>
+        <!-- estructura -->
+        <aside class="col-3 p-4">
+            <ng-container *ngIf="template">
+                <app-file-structure [templateId]="template.id" />
+                <div class="d-flex justify-content-end gap-2">
+                    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+                    <app-download-template-button [templateId]="template.id"></app-download-template-button>
+                </div>
+            </ng-container>
+        </aside>
+
+    </div>
+</div>

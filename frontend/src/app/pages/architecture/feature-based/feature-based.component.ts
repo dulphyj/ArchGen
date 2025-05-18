@@ -5,16 +5,19 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
+import { FeatureBasedDiagramComponent } from "../../../features/layout/architectures-diagrams/feature-based-diagram/feature-based-diagram.component";
 
 @Component({
   selector: 'app-feature-based',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, FileStructureComponent, FeatureBasedDiagramComponent],
   templateUrl: './feature-based.component.html',
   styleUrl: './feature-based.component.css'
 })
 export class FeatureBasedComponent implements OnInit {
   arch = ArchitectureType.FEATURE_BASED;
   template!: Template;
+  title: string = 'Arquitectura FEATURE BASED';
 
   constructor(private tempalteService: TemplateService) { }
 

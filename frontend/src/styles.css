@@ -4,6 +4,7 @@
     --tertiary: #14A4EF;
     --dark-bg: #242025;
     --light-text: #f1f1f1;
+    --black-text: #060313;
     --red-button: #701313;
     --sec-button: #707070;
 }
@@ -50,3 +51,17 @@ a {
         color: var--(primary);
     }
 }
+
+.logo-box {
+    width: 60px;
+    height: 60px;
+    font-weight: 700;
+    font-size: 1.6rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary);
+    color: var(--light-text);
+}
+

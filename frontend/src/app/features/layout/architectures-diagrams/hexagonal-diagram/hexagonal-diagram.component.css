@@ -1,0 +1,118 @@
+.hexagon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(50% 0%,
+            93% 25%,
+            93% 75%,
+            50% 100%,
+            7% 75%,
+            7% 25%);
+    transition: transform 0.3s ease;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.hexagon:hover {
+    transform: scale(1.03);
+}
+.hexagon2:hover{
+        transform: scale(1.05);
+    }
+.hexagon3:hover{
+        transform: scale(1.07);
+    }
+
+.layer-3 {
+    width: 360px;
+    height: 360px;
+    background-color: #2c3e50;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), inset 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.layer-2 {
+    width: 240px;
+    height: 240px;
+    background-color: #8e44ad;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35), inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.layer-1 {
+    width: 140px;
+    height: 140px;
+    background-color: #16a085;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3), inset 0 0 6px rgba(255, 255, 255, 0.05);
+}
+
+/* Etiquetas */
+.label {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    white-space: nowrap;
+}
+
+.label-3 {
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.label-3a {
+    top: 170px;
+    left: 80%;
+    transform: rotate(90deg);
+}
+
+.label-3b {
+    top: 170px;
+    right: 80%;
+    transform: rotate(-90deg);
+}
+
+.label-2 {
+    top: 10%;
+    left: 32%;
+}
+
+.label-2a {
+    top: 50%;
+    left: 5%;
+    transform: rotate(270deg);
+}
+
+.label-2b {
+    top: 50%;
+    right: -5%;
+    transform: rotate(90deg);
+}
+
+.label-1 {
+    font-size: 1.1rem;
+}
+
+.label-1a {
+    bottom: 65%;
+    font-size: 0.95rem;
+}
+
+.label-1b {
+    top: 65%;
+    font-size: 0.95rem;
+}
+
+/* Tooltips personalizados */
+.tooltip-inner {
+    background-color: #2c3e50 !important;
+    color: white;
+    font-size: 0.95rem;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    max-width: 260px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}

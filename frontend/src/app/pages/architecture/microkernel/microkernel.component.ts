@@ -5,16 +5,19 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
+import { MicrokernelDiagramComponent } from "../../../features/layout/architectures-diagrams/microkernel-diagram/microkernel-diagram.component";
 
 @Component({
   selector: 'app-microkernel',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, FileStructureComponent, MicrokernelDiagramComponent],
   templateUrl: './microkernel.component.html',
   styleUrl: './microkernel.component.css'
 })
 export class MicrokernelComponent implements OnInit {
   arch = ArchitectureType.MICROKERNEL;
   template!: Template;
+  title: string = 'Arquitectura Microkernel';
 
   constructor(private tempalteService: TemplateService) { }
 

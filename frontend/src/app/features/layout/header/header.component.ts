@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, Signal, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
-import { SessionStorageService } from '../../../core/services/session-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -13,10 +12,10 @@ import { SessionStorageService } from '../../../core/services/session-storage.se
 export class HeaderComponent {
 
   private auth = inject(AuthService);
-  private storage = inject(SessionStorageService);
 
   isAuthenticated: Signal<boolean> = this.auth.isAuthenticated;
-  userName: string = this.storage.getItem('userName');
+  userName: Signal<string | null> = this.auth.userName;
+  userImage: Signal<string | null> = this.auth.imageUrl;
 
   logout() {
     this.auth.logout();

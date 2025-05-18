@@ -1,0 +1,28 @@
+.description-section {
+    height: auto;
+    background-color: #f8f8f813;
+}
+
+.content-section {
+    height: auto;
+    background-color: #5711ed31;
+}
+
+aside {
+    background-color: #14a2ef17;
+    height: auto;
+}
+
+main {
+    width: 70%;
+}
+
+aside {
+    width: 30%;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}

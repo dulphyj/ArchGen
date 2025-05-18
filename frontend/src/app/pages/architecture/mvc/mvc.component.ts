@@ -5,16 +5,19 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
+import { MvcDiagramComponent } from "../../../features/layout/architectures-diagrams/mvc-diagram/mvc-diagram.component";
 
 @Component({
   selector: 'app-mvc',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, FileStructureComponent, MvcDiagramComponent],
   templateUrl: './mvc.component.html',
   styleUrl: './mvc.component.css'
 })
 export class MvcComponent implements OnInit {
   arch = ArchitectureType.MVC;
   template!: Template;
+  title: string = 'Arquitectura MVC';
 
   constructor(private tempalteService: TemplateService) { }
 

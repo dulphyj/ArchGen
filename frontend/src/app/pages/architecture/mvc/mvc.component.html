@@ -1,5 +1,44 @@
-<h2>Arquitectura MVC</h2>
-<ng-container *ngIf="template">
-    <app-download-template-button [templateId]="template.id"></app-download-template-button>
-    <app-update-template-button [templateId]="template.id"></app-update-template-button>
-</ng-container>
+<!--Título -->
+<header class="container-fluid d-flex align-items-center justify-content-center">
+    <h2 class="h4 m-0">{{title}}</h2>
+</header>
+<!-- Secciones-->
+<div class="container-fluid">
+    <div class="row main-content">
+        <!-- Columna Izquierda -->
+        <main class="col-9 d-flex flex-column p-0">
+            <!-- diagrama -->
+            <section class="content-section flex-grow-1 p-4">
+                <div class="container">
+                    <app-mvc-diagram />
+                </div>
+            </section>
+            <!--Descripción -->
+            <section class="description-section p-4">
+                <p>La arquitectura Modelo-Vista-Controlador (MVC) es un patrón de diseño de software que divide una
+                    aplicación en tres
+                    partes interconectadas: el Modelo (datos y lógica de negocio), la Vista (interfaz de usuario) y el
+                    Controlador (gestiona
+                    la interacción del usuario y actualiza el Modelo y la Vista). MVC promueve la separación de
+                    responsabilidades, facilita
+                    el desarrollo, la mantenibilidad y la escalabilidad. El Controlador recibe la entrada del usuario,
+                    interactúa con el
+                    Modelo para obtener o modificar datos, y luego actualiza la Vista para reflejar los cambios. Esta
+                    separación permite que
+                    múltiples Vistas utilicen el mismo Modelo, y facilita las pruebas unitarias.</p>
+            </section>
+
+        </main>
+        <!-- estructura -->
+        <aside class="col-3 p-4">
+            <ng-container *ngIf="template">
+                <app-file-structure [templateId]="template.id" />
+                <div class="d-flex justify-content-end gap-2">
+                    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+                    <app-download-template-button [templateId]="template.id"></app-download-template-button>
+                </div>
+            </ng-container>
+        </aside>
+
+    </div>
+</div>

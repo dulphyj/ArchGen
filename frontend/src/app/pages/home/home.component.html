@@ -90,8 +90,9 @@
 <section class="cta py-5 text-light text-center" style="background-color: var(--primary);">
     <div class="container">
         <h2 class="display-6">¿Listo para organizar tus proyectos?</h2>
-        <a routerLink="/template" class="btn btn-light btn-lg mt-3">
+        <a (click)="goToAComponentAndHighlightButton()" class="btn btn-light btn-lg mt-3">
             <i class="bi bi-lightbulb-fill me-2"></i>Empezar ahora
         </a>
     </div>
 </section>
+<app-footer />

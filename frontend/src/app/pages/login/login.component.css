@@ -1,0 +1,12 @@
+
+.bg-dark-bg {
+    background-color: var(--primary) !important;
+}
+
+.text-light-text {
+    color: var(--light-text) !important;
+}
+
+.text-secondary {
+    color: var(--tertiary) !important;
+}

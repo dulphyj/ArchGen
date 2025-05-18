@@ -7,11 +7,12 @@
 
             <div class="folder-name"
                 [ngStyle]="{ transform: 'scale(' + (1 - depth * 0.045) + ')', 'transform-origin': 'right top' }">
-                <input type="text" [(ngModel)]="folder.name" placeholder="Nombre de carpeta" class="form-control" />
+                <input type="text" [(ngModel)]="folder.name" placeholder="Nombre de carpeta" class="form-control"
+                    title="Nombre de la carpeta" />
             </div>
 
             <div class="folder-description">
-                <input type="text" [(ngModel)]="folder.description" placeholder="Descripción" class="form-control" />
+                <label type="text" title="Descripción del contenido de la carpeta">{{folder.description}}</label>
             </div>
 
             <button class="btn btn-add btn-sm" (click)="addSubfolder()"

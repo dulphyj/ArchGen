@@ -5,16 +5,19 @@ import { UpdateTemplateButtonComponent } from "../../../shared/components/update
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { CommonModule } from '@angular/common';
+import { FileStructureComponent } from "../../../features/layout/file-structure/file-structure.component";
+import { MvvmDiagramComponent } from "../../../features/layout/architectures-diagrams/mvvm-diagram/mvvm-diagram.component";
 
 @Component({
   selector: 'app-mvvm',
-  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule],
+  imports: [DownloadTemplateButtonComponent, UpdateTemplateButtonComponent, CommonModule, FileStructureComponent, MvvmDiagramComponent],
   templateUrl: './mvvm.component.html',
   styleUrl: './mvvm.component.css'
 })
 export class MvvmComponent implements OnInit {
   arch = ArchitectureType.MVVM;
   template!: Template;
+  title: string = 'Arquitectura MVVM';
 
   constructor(private tempalteService: TemplateService) { }
 

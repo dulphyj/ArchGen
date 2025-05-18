@@ -1,0 +1,25 @@
+<div class="mvvm-diagram d-flex flex-column align-items-center position-relative">
+    <!-- View -->
+    <div class="mvvm-box view" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvvm"
+        title="🎨 View: Interfaz de usuario que muestra datos y recibe interacción del usuario. Se enlaza con el ViewModel.">
+        View
+    </div>
+
+    <!-- Flecha View -> ViewModel -->
+    <div class="arrow">User input →</div>
+
+    <!-- ViewModel -->
+    <div class="mvvm-box viewmodel" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvvm"
+        title="🧩 ViewModel: Intermediario que maneja la lógica de presentación, expone los datos del modelo y responde a eventos de la vista.">
+        ViewModel
+    </div>
+
+    <!-- Flecha ViewModel -> Model -->
+    <div class="arrow">Update →</div>
+
+    <!-- Model -->
+    <div class="mvvm-box model" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvvm"
+        title="🧠 Model: Contiene la lógica de negocio y acceso a datos. Notifica cambios al ViewModel.">
+        Model
+    </div>
+</div>

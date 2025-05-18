@@ -12,6 +12,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CustomTemplatesComponent } from './pages/custom-templates/custom-templates.component';
 import { catchAllRoute } from 'ngx-clerk-iliad';
 import { authGuard } from './core/guards/auth.guard';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
     {
@@ -28,5 +29,6 @@ export const routes: Routes = [
         ]
     },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent }
+    { path: 'register', component: RegisterComponent },
+    { path: '**', component: NotFoundComponent }
 ];

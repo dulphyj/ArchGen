@@ -1,0 +1,38 @@
+<div class=" d-flex justify-content-center align-items-center flex-column">
+    <!-- Controller -->
+    <div class="mvc-box controller" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvc"
+        title="📂 Controller: Recibe las peticiones del usuario y coordina las acciones entre el modelo y la vista.">
+        Controller
+    </div>
+
+    <div class="mvc-flow">⇅</div>
+
+    <!-- Service -->
+    <div class="mvc-box service" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvc"
+        title="🔧 Service: Contiene la lógica del negocio, orquesta la interacción entre Controller, Repository y Model.">
+        Service
+    </div>
+
+    <div class="mvc-inner d-flex justify-content-center">
+        <!-- Model -->
+        <div class="mvc-box model" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-mvc"
+            title="🧠 Model: Representa los datos y reglas del dominio.">
+            Model
+        </div>
+
+        <!-- Repository -->
+        <div class="mvc-box repository" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="tooltip-mvc"
+            title="💾 Repository: Accede a los datos y realiza operaciones sobre la base de datos.">
+            Repository
+        </div>
+    </div>
+
+    <div class="mvc-flow">⇅</div>
+
+    <!-- View -->
+    <div class="mvc-box view" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-custom-class="tooltip-mvc"
+        title="🖼️ View: Presenta la información al usuario, obtenida del modelo a través del controlador.">
+        View
+    </div>
+</div>

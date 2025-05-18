@@ -1,0 +1,18 @@
+<div class="folder-item" [ngStyle]="{ paddingLeft: (depth * 0.5) + 'rem' }">
+    <div class="folder-item-row position-relative">
+        <div class="folder-branch-line" *ngIf="depth > 2"></div>
+
+        <i class="bi" [ngClass]="folder.subFolders?.length ? 'bi-folder2-open' : 'bi-folder'" class="folder-icon "></i>
+
+        <div class="folder-texts"
+            [ngStyle]="{ transform: 'scale(' + (1 - depth * 0.045) + ')', 'transform-origin': 'left top' }">
+            <div class="folder-title fw-semibold text-light"><strong>{{ folder.name }}</strong></div>
+            <div class="folder-description small ">{{ folder.description }}</div>
+        </div>
+    </div>
+
+    <div class="folder-children ps-3 border-start border-secondary ms-2 mt-2" *ngIf="folder.subFolders?.length">
+        <app-folder-visual-item *ngFor="let sub of folder.subFolders" [folder]="sub" [depth]="depth + 1">
+        </app-folder-visual-item>
+    </div>
+</div>

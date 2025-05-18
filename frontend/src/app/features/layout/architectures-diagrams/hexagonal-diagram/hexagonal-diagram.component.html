@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-center align-items-center">
+    <!-- Infrastructure / Adapters -->
+    <div class="hexagon layer-3">
+        <div data-bs-toggle="tooltip" data-bs-placement="top"
+            title="🌐 Infrastructure: Capa externa que comunica tu sistema con el mundo exterior (bases de datos, APIs, frameworks).">
+            <div class="label label-3">Infrastructure</div>
+            <div class="label label-3a">Adapters</div>
+            <div class="label label-3b">REST</div>
+        </div>
+
+
+        <!-- Application -->
+        <div class="hexagon hexagon2 layer-2">
+            <div data-bs-toggle="tooltip" data-bs-placement="top"
+                title="🧠 Application: Orquesta los casos de uso del negocio, conecta la infraestructura con el dominio.">
+                <div class="label label-2">Application</div>
+                <div class="label label-2a">Services</div>
+                <div class="label label-2b">Repositories</div>
+            </div>
+
+            <!-- Domain -->
+            <div class="hexagon hexagon3 layer-1" data-bs-toggle="tooltip" data-bs-placement="top"
+                title="💡 Domain: El corazón del sistema. Contiene las reglas de negocio y lógica pura.">
+                <div class="label label-1">Domain</div>
+                <div class="label label-1a">Model</div>
+                <div class="label label-1b">Port</div>
+            </div>
+        </div>
+    </div>
+</div>

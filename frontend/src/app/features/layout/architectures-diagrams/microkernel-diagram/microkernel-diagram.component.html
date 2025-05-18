@@ -1,0 +1,46 @@
+<div class="microkernel-diagram d-flex flex-column align-items-center position-relative">
+    <!-- Líneas de conexión -->
+    <svg class="micro-lines" width="100%" height="100%">
+        <!-- Core -> Domain -->
+        <line x1="50%" y1="45" x2="30%" y2="130" class="line-connection" />
+        <!-- Core -> Service -->
+        <line x1="50%" y1="45" x2="70%" y2="130" class="line-connection" />
+        <!-- Core -> Plugins -->
+        <line x1="50%" y1="45" x2="50%" y2="225" class="line-connection" />
+        <!-- Core -> Infrastructure -->
+        <line x1="50%" y1="45" x2="55%" y2="320" class="line-connection dashed" />
+    </svg>
+
+    <!-- Core -->
+    <div class="micro-box core" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="tooltip-micro"
+        title="⚙️ Core: Núcleo central que gestiona la carga de plugins y la coordinación entre componentes.">
+        Core
+    </div>
+
+    <!-- Domain & Service -->
+    <div class="d-flex flex-row gap-4 mt-3">
+        <div class="micro-box domain" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="tooltip-micro" title="🧠 Domain: Entidades, reglas de negocio y lógica del dominio.">
+            Domain
+        </div>
+        <div class="micro-box service" data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="tooltip-micro"
+            title="🔧 Service: Funcionalidades reutilizables y coordinación de lógica.">
+            Service
+        </div>
+    </div>
+
+    <!-- Plugins -->
+    <div class="micro-box plugins mt-3" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="tooltip-micro"
+        title="🧩 Plugins: Componentes que extienden funcionalidades del core sin modificarlo.">
+        Plugins
+    </div>
+
+    <!-- Infrastructure -->
+    <div class="micro-box infrastructure mt-3" data-bs-toggle="tooltip" data-bs-placement="top"
+        data-bs-custom-class="tooltip-micro"
+        title="🌐 Infrastructure: Tecnologías externas como bases de datos, red o frameworks.">
+        Infrastructure
+    </div>
+</div>

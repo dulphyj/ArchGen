@@ -1,8 +1,9 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, inject, Input, OnChanges, OnInit, Signal, SimpleChanges } from '@angular/core';
 import { Template } from '../../../core/models/template.model';
 import { TemplateService } from '../../../core/services/template.service';
 import { SessionStorageService } from '../../../core/services/session-storage.service';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-download-template-button',
@@ -11,10 +12,16 @@ import { CommonModule } from '@angular/common';
   styleUrl: './download-template-button.component.css'
 })
 export class DownloadTemplateButtonComponent implements OnInit, OnChanges {
+  auth = inject(AuthService);
+
+  isAuthenticated: Signal<boolean> = this.auth.isAuthenticated;
 
   template: Template | null = null;
   isLoading = true;
   @Input() templateId!: string;
+
+  @Input() highlight = false;
+
 
   constructor(private templateService: TemplateService, private sessionStorage: SessionStorageService) { }
 
