@@ -9,7 +9,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class TemplateService {
-  private templateUrl = environment.backendUrl;
+  private templateUrl = `${environment.backendUrl}/api/template`;
 
   constructor(private httpClient: HttpClient) { }
 

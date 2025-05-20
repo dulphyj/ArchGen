@@ -2,7 +2,7 @@
     <div class="folder-indent">
         <div class="folder-editor">
             <span class="folder-icon">
-                {{ folder.subFolders?.length ? '📂' : '📁' }}
+                {{ folder.subFolders.length ? '📂' : '📁' }}
             </span>
 
             <div class="folder-name"
@@ -12,7 +12,7 @@
             </div>
 
             <div class="folder-description">
-                <label type="text" title="Descripción del contenido de la carpeta">{{folder.description}}</label>
+                <label type="text" title="Descripción del contenido de la carpeta.">{{folder.description}}</label>
             </div>
 
             <button class="btn btn-add btn-sm" (click)="addSubfolder()"
@@ -28,7 +28,7 @@
 
     <div *ngIf="folder.subFolders">
         <app-folder-editor *ngFor="let sub of folder.subFolders; let i = index" [folder]="sub" [depth]="depth + 3"
-            (delete)="folder.subFolders?.splice(i, 1)">
+            (delete)="folder.subFolders.splice(i, 1)">
         </app-folder-editor>
     </div>
 </div>
