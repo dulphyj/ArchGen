@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, Signal, signal } from '@angular/core';
+import { Component, EventEmitter, inject, OnInit, Output, Signal, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 
@@ -13,6 +13,8 @@ export class HeaderComponent {
 
   private auth = inject(AuthService);
 
+  @Output() toggleSidebarMobile = new EventEmitter<void>();
+
   isAuthenticated: Signal<boolean> = this.auth.isAuthenticated;
   userName: Signal<string | null> = this.auth.userName;
   userImage: Signal<string | null> = this.auth.imageUrl;
@@ -20,4 +22,8 @@ export class HeaderComponent {
   logout() {
     this.auth.logout();
   }
+  toggleSidebar() {
+    this.toggleSidebarMobile.emit();
+  }
+
 }

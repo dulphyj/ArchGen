@@ -1,6 +1,13 @@
-<app-header></app-header>
+<app-header (toggleSidebarMobile)="sidebarVisible = !sidebarVisible"></app-header>
 
 <div class="app-container d-flex">
-    <app-sidebar></app-sidebar>
-    <app-main-content class=" main-content"></app-main-content>
+    <!-- Sidebar: visible en md+, o manual en móviles -->
+    <app-sidebar [ngClass]="{
+        'd-none': isMobile && !sidebarVisible,
+        'd-block': isMobile && sidebarVisible,
+        'd-md-block': !isMobile
+      }"></app-sidebar>
+
+
+    <app-main-content class="main-content w-100"></app-main-content>
 </div>

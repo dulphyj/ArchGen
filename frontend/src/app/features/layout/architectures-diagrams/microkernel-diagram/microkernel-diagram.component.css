@@ -2,6 +2,7 @@
     padding: 2rem;
     font-family: Arial, sans-serif;
     gap: 1rem;
+    position: relative;
 }
 
 .micro-box {
@@ -13,13 +14,13 @@
     text-align: center;
     min-width: 220px;
     box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.1),
-            inset 0 -1px 2px rgba(0, 0, 0, 0.2);
-        transition: transform 0.2s;
-        background-image: linear-gradient(to bottom right,
-                rgba(255, 255, 255, 0.05),
-                rgba(0, 0, 0, 0.1));
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s;
+    background-image: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.05),
+            rgba(0, 0, 0, 0.1));
 }
 
 .micro-box:hover {
@@ -75,6 +76,19 @@
 }
 
 .line-connection.dashed {
-    stroke-dasharray: 5,5;
+    stroke-dasharray: 5, 5;
     stroke: white;
+}
+
+/* Media Queries para adaptabilidad en pantallas pequeñas */
+@media (max-width: 768px) {
+    .micro-box {
+        min-width: 180px;
+        /* Reducir tamaño de las cajas en pantallas más pequeñas */
+    }
+
+    .micro-lines {
+        width: 100%;
+        height: 100%;
+    }
 }

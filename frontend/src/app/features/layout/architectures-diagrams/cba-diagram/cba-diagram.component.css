@@ -1,9 +1,14 @@
+/* Ajustar el contenedor principal */
 .cba-layered-diagram {
     padding: 2rem;
     font-family: Arial, sans-serif;
     gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
+/* Asegurar que las cajas de texto se ajusten */
 .cba-box {
     padding: 1rem 2rem;
     border-radius: 12px;
@@ -11,26 +16,52 @@
     font-weight: bold;
     color: white;
     text-align: center;
-    min-width: 220px;
+    min-width: 200px;
+    /* Tamaño mínimo ajustado */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
     z-index: 1;
-    box-shadow:
-            0 4px 8px rgba(0, 0, 0, 0.2),
-            0 6px 20px rgba(0, 0, 0, 0.19);
-        /* sombra más profunda para 3D */
-        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(0.2px);
-        -webkit-backdrop-filter: blur(0.2px);
-        transform: perspective(500px) translateZ(0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 6px 20px rgba(0, 0, 0, 0.19);
+    background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(0.2px);
+    -webkit-backdrop-filter: blur(0.2px);
+    transform: perspective(500px) translateZ(0);
+    max-width: 100%;
+    /* Asegurarse de que se ajusten al contenedor */
 }
 
+/* Efecto hover para las cajas */
 .cba-box:hover {
     transform: scale(1.05) rotateX(2deg) rotateY(2deg);
 }
 
-/* Colores únicos para cada capa */
+/* SVG: ajustando la altura y el ancho para que se adapten al tamaño del contenedor */
+.cba-lines {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    /* Limitar la altura máxima */
+}
+
+/* Las líneas de conexión (cambiamos tamaño relativo en SVG) */
+.line-connection {
+    stroke: white;
+    stroke-width: 2;
+}
+
+.line-connection.dashed {
+    stroke-dasharray: 6;
+    stroke: white;
+}
+
+/* Estilos para las capas */
 .layout {
     background-color: #34495e;
 }
@@ -75,21 +106,58 @@
     white-space: normal;
 }
 
-/* SVG líneas */
-.cba-lines {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
+/* Responsividad: Ajustes para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .cba-layered-diagram {
+        padding: 1rem;
+        /* Reducir padding en pantallas pequeñas */
+    }
+
+    /* Reducir tamaño de las cajas para pantallas pequeñas */
+    .cba-box {
+        font-size: 0.9rem;
+        /* Reducir el tamaño de la fuente */
+        padding: 1rem;
+        min-width: 150px;
+        /* Ajustar el ancho mínimo */
+    }
+
+    /* Eliminar márgenes o reducir las dimensiones de las cajas */
+    .cba-box+.cba-box {
+        margin-top: 1rem;
+    }
+
+    /* Ajustar SVG para que se adapte a pantallas más pequeñas */
+    .cba-lines {
+        max-width: 100%;
+        max-height: 400px;
+        /* Reducir el tamaño máximo */
+    }
+
+    /* Reducir las líneas del SVG para pantallas pequeñas */
+    .line-connection {
+        stroke-width: 1.5;
+    }
 }
 
-.line-connection {
-    stroke: white;
-    stroke-width: 2;
-}
+@media (max-width: 480px) {
 
-.line-connection.dashed {
-    stroke-dasharray: 6;
-    stroke: white;
+    /* Ajustar aún más para pantallas muy pequeñas */
+    .cba-box {
+        font-size: 0.8rem;
+        /* Reducir aún más el tamaño de fuente */
+        padding: 0.8rem;
+        min-width: 120px;
+    }
+
+    /* Reducir la altura máxima del SVG para dispositivos móviles */
+    .cba-lines {
+        max-height: 300px;
+        /* Reducir aún más la altura máxima */
+    }
+
+    /* Reducir las líneas del SVG aún más */
+    .line-connection {
+        stroke-width: 1;
+    }
 }

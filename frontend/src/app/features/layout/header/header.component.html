@@ -1,25 +1,33 @@
-<header class="app-header py-2">
-    <a routerLink="/" class="logo logo-box bg-primary text-light-text me-1">AG</a>
+<header class="app-header">
+    <div class="d-flex w-100 justify-content-between align-items-center">
 
-    <div class="auth-actions p-3">
-        <a *ngIf="!isAuthenticated()" routerLink="/login" class="d-flex align-items-center">
-            <i class="bi bi-box-arrow-in-right me-1"></i> Login
-        </a>
-        <ng-container *ngIf="isAuthenticated()">
-            <div class="d-flex align-items-center gap-2 p-3  mb-2">
-                <div>
+        <!-- IZQUIERDA: Logo + hamburguesa -->
+        <div class="d-flex align-items-center">
+            <!-- Botón hamburguesa SOLO visible en móviles -->
+            <button class="btn btn-outline-light d-md-none me-2" (click)="toggleSidebar()">
+                ☰
+            </button>
+            <a routerLink="/" class="logo logo-box bg-primary text-light-text">AG</a>
+        </div>
+
+        <!-- DERECHA: Login o avatar -->
+        <div class="auth-actions d-flex align-items-center">
+            <a *ngIf="!isAuthenticated()" routerLink="/login" class="d-flex align-items-center">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </a>
+            <ng-container *ngIf="isAuthenticated()">
+                <div class="d-flex align-items-center gap-2">
                     <img *ngIf="userImage()" [src]="userImage()" alt="Avatar" class="rounded-circle" width="40"
                         height="40" />
+                    <div class="d-flex flex-column align-items-end">
+                        <a (click)="logout()" class="btn btn-sm d-flex align-items-center fw-semibold fs-6">
+                            <i class="bi bi-box-arrow-left me-1"></i> Logout
+                        </a>
+                        <span>Hola {{ userName() }}</span>
+                    </div>
                 </div>
-                <div class="d-flex flex-column">
-                    <a (click)="logout()" class="btn btn-sm d-flex align-items-center fw-semibold fs-6">
-                        <i class="bi bi-box-arrow-left me-0"></i> Logout
-                    </a>
-                    <span class="ms-3">Hola {{ userName() }}</span>
-                </div>
-            </div>
-        </ng-container>
-
+            </ng-container>
+        </div>
 
     </div>
 </header>

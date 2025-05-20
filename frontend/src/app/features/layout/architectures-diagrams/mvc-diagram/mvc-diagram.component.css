@@ -2,6 +2,7 @@
     gap: 1rem;
     padding: 2rem;
     font-family: Arial, sans-serif;
+    width: 100%;
 }
 
 .mvc-box {
@@ -13,20 +14,20 @@
     text-align: center;
     min-width: 200px;
     box-shadow:
-            0 4px 12px rgba(0, 0, 0, 0.2),
-            inset 0 1px 2px rgba(255, 255, 255, 0.1),
-            inset 0 -1px 2px rgba(0, 0, 0, 0.2);
-        background-image: linear-gradient(to bottom right,
-                rgba(255, 255, 255, 0.05),
-                rgba(0, 0, 0, 0.1));
-        transition: transform 0.2s;
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 0.1),
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    background-image: linear-gradient(to bottom right,
+            rgba(255, 255, 255, 0.05),
+            rgba(0, 0, 0, 0.1));
+    transition: transform 0.2s;
 }
 
-.mvc-box:hover{
+.mvc-box:hover {
     transform: scale(1.03);
 }
 
-
+/* Colores por rol */
 .controller {
     background-color: #3498db;
 }
@@ -50,11 +51,16 @@
 .mvc-inner {
     gap: 1rem;
     margin: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+/* Flechas entre capas */
 .mvc-flow {
     font-size: 1.5rem;
     color: white;
+    margin: 0.5rem 0;
 }
 
 /* Tooltip personalizado */
@@ -71,4 +77,16 @@
 
 .tooltip-inner {
     white-space: normal;
+}
+
+/* Media Query para responsive */
+@media (max-width: 768px) {
+    .mvc-box {
+        min-width: 180px;
+        font-size: 1rem;
+    }
+
+    .mvc-flow {
+        font-size: 1.2rem;
+    }
 }

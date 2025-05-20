@@ -1,47 +1,51 @@
-<!--Título -->
-<header class="container-fluid d-flex align-items-center justify-content-center">
-    <h2 class="h4 m-0">{{title}}</h2>
+<!-- Título -->
+<header class="container-fluid d-flex align-items-center justify-content-center py-3">
+    <h2 class="h4 m-0">{{ title }}</h2>
 </header>
-<!-- Secciones-->
+
+<!-- Secciones -->
 <div class="container-fluid">
-    <div class="row main-content">
-        <!-- Columna Izquierda -->
-        <main class="col-9 d-flex flex-column p-0">
-            <!-- diagrama -->
-            <section tourAnchor="diagram" class="content-section flex-grow-1 p-4">
-                <div class="container">
-                    <app-hexagonal-diagram />
+    <div class="row main-content gx-3 align-items-stretch">
+        <!-- Columna izquierda: Diagrama + Descripción -->
+        <div class="col-12 col-lg-8 d-flex flex-column h-100">
+            <!-- Diagrama -->
+            <section tourAnchor="diagram"
+                class="content-section d-flex justify-content-center align-items-center p-3 mb-3">
+                <div class="diagram-wrapper w-100 h-100">
+                    <app-hexagonal-diagram></app-hexagonal-diagram>
                 </div>
             </section>
-            <!--Descripción -->
-            <section tourAnchor="architecture-description" class="description-section p-4">
-                <p>La Arquitectura Hexagonal, también conocida como Arquitectura de Puertos y Adaptadores, es un patrón
-                    de diseño de
-                    software que tiene como objetivo crear aplicaciones altamente desacopladas y fáciles de mantener. Se
-                    centra en separar
-                    la lógica principal del negocio de los detalles de la infraestructura, como la interfaz de usuario,
-                    bases de datos y
-                    sistemas externos. Esto se logra definiendo 'puertos' (interfaces) que representan las interacciones
-                    con el núcleo de la
-                    aplicación y 'adaptadores' que implementan estos puertos, permitiendo así la conexión con diferentes
-                    tecnologías sin
-                    afectar la lógica principal. El resultado es una arquitectura más flexible y adaptable a los
-                    cambios.</p>
-            </section>
 
-        </main>
-        <!-- estructura -->
-        <aside tourAnchor="estructure" class="col-3 p-4">
+            <!-- Descripción -->
+            <section tourAnchor="architecture-description" class="description-section p-3 mb-3">
+                <p>
+                    La Arquitectura Hexagonal, también conocida como Arquitectura de Puertos y Adaptadores, es un patrón
+                    de diseño de software que tiene como objetivo crear aplicaciones altamente desacopladas y fáciles de
+                    mantener. Se
+                    centra en separar la lógica principal del negocio de los detalles de la infraestructura, como la
+                    interfaz de usuario,
+                    bases de datos y sistemas externos. Esto se logra definiendo 'puertos' (interfaces) que representan
+                    las interacciones
+                    con el núcleo de la aplicación y 'adaptadores' que implementan estos puertos, permitiendo así la
+                    conexión con diferentes
+                    tecnologías sin afectar la lógica principal. El resultado es una arquitectura más flexible y
+                    adaptable a los cambios.
+                </p>
+            </section>
+        </div>
+
+        <!-- Columna derecha: Estructura -->
+        <div class="col-12 col-lg-4 mb-3 h-100 p-3">
             <ng-container *ngIf="template">
-                <app-file-structure [templateId]="template.id" />
-                <div class="d-flex justify-content-end gap-2">
+                <app-file-structure [templateId]="template.id"></app-file-structure>
+                <div class="d-flex flex-wrap justify-content-end gap-2 mt-3">
                     <app-update-template-button [templateId]="template.id"></app-update-template-button>
                     <app-download-template-button tourAnchor="download" [templateId]="template.id"
                         [highlight]="highlightButton"></app-download-template-button>
                 </div>
             </ng-container>
-        </aside>
-
+        </div>
     </div>
 </div>
+
 <tour-step-template></tour-step-template>

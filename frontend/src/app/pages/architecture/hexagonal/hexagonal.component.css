@@ -1,28 +1,63 @@
+/* Estilos visuales */
 .description-section {
-    height: auto;
     background-color: #f8f8f813;
 }
 
 .content-section {
-    height: auto;
     background-color: #5711ed31;
-}
-
-aside {
-    background-color: #14a2ef17;
-    height: auto;
-}
-
-main {
-    width: 70%;
-}
-
-aside {
-    width: 30%;
-}
-
-.container {
+    min-height: 300px;
+    max-height: 600px;
+    overflow: hidden;
     position: relative;
-    width: 400px;
-    height: 400px;
+}
+
+.col-lg-4 {
+    background-color: #14a2ef17;
+}
+
+/* Margen vertical entre secciones */
+.content-section,
+.description-section,
+.col-12.col-lg-4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Diagrama centrado dentro de la sección */
+.diagram-wrapper {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.diagram-wrapper app-hexagonal-diagram {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Responsividad desde <1400px: columnas se apilan */
+@media (max-width: 1000px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .main-content>.col-12 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100%;
+        margin-bottom: 1rem;
+    }
+
+    .content-section,
+    .description-section {
+        width: 100%;
+    }
+
+    .d-flex.justify-content-end {
+        justify-content: center !important;
+    }
 }

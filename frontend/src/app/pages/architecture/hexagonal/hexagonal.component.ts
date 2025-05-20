@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { DownloadTemplateButtonComponent } from "../../../shared/components/download-template-button/download-template-button.component";
 import { ArchitectureType } from '../../../core/models/architecture-type.enum';
 import { UpdateTemplateButtonComponent } from "../../../shared/components/update-template-button/update-template-button.component";
@@ -17,7 +17,7 @@ import { TourControllerService } from '../../../core/services/tour-controller.se
   templateUrl: './hexagonal.component.html',
   styleUrl: './hexagonal.component.css'
 })
-export class HexagonalComponent implements OnInit, AfterViewInit {
+export class HexagonalComponent implements OnInit {
   private readonly tourService = inject(TourControllerService);
   arch = ArchitectureType.HEXAGONAL;
   template!: Template;
@@ -26,17 +26,6 @@ export class HexagonalComponent implements OnInit, AfterViewInit {
   highlightButton = false;
 
   constructor(private tempalteService: TemplateService, private route: ActivatedRoute) { }
-
-  async ngAfterViewInit(): Promise<void> {
-    /*if (this.tourService.initTour()) {
-      console.log("Esperando a que se rendericen los anchors...");
-      await this.waitForAnchors();  // Asegura que los elementos estén presentes
-      this.tourService.initializeTour();
-      this.tourService.startTour();
-      this.tourService.initTour.set(false);
-      this.tourService.endTour();
-    }*/
-  }
 
   async ngOnInit(): Promise<void> {
     this.getTemplateByArch();
