@@ -7,6 +7,8 @@ import { FolderEditorComponent } from "../folder-editor/folder-editor.component"
 import { DownloadTemplateButtonComponent } from "../../../shared/components/download-template-button/download-template-button.component";
 import { SessionStorageService } from '../../../core/services/session-storage.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-edit-template-modal',
@@ -27,7 +29,7 @@ export class EditTemplateModalComponent implements OnInit {
   template!: Template;
   inputValue: string = '';
 
-  constructor(private templateService: TemplateService) { }
+  constructor(private templateService: TemplateService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getTemplateById();
@@ -54,9 +56,11 @@ export class EditTemplateModalComponent implements OnInit {
         this.template.type = this.template.type;
         this.template.structure = response.structure;
         console.log("Nueva plantilla creada.")
+        this.toastr.success('Plantilla creada exitosamente', 'Éxito')
       },
       error: (error) => {
         console.error('Error al crear nueva plantilla:', error);
+        this.toastr.error('Error al crear plantilla', 'Error')
       }
     })
   }
@@ -74,7 +78,10 @@ export class EditTemplateModalComponent implements OnInit {
   }
 
   close(): void {
-    this.closeModal.emit();
+    this.toastr.info('Has salido del editor de plantillas exitosamente.', 'Información', { timeOut: 3000 });
+    setTimeout(() => {
+      this.closeModal.emit();
+    }, 300)
   }
 
   onBlur() {

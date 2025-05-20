@@ -22,6 +22,8 @@
     "bootstrap-icons": "^1.13.1",
     "jquery": "^3.7.1",
     "ngx-clerk-iliad": "^0.2.8",
+    "ngx-toastr": "^19.0.0",
+    "ngx-ui-tour-md-menu": "^14.0.1",
     "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",

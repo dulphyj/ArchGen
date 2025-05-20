@@ -1,3 +1,5 @@
+@import 'ngx-toastr/toastr';
+
 :root {
     --primary: #5511ED;
     --secondary: #115AED;
@@ -63,5 +65,39 @@ a {
     justify-content: center;
     background-color: var(--primary);
     color: var(--light-text);
+}
+
+
+/*tour ngx*/
+.mat-mdc-menu-content{
+    background-color: var(--primary);
+}
+
+/*toast*/
+.toast-center-center {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    position: fixed !important;
+}
+
+.toast-success {
+    background-color:var(--secondary) !important;
+    color: white;
+}
+
+.toast-error {
+    background-color: var(--red-button) !important; 
+    color: white;
+}
+
+.toast-info {
+    background-color: var(--sec-button) !important;
+    color: white;
+}
+
+.toast-warning {
+    background-color: var(--primary) !important;
+    color: white;
 }
 

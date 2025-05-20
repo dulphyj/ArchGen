@@ -5,10 +5,11 @@ import { Router, RouterModule } from '@angular/router';
 import { ClerkService } from 'ngx-clerk-iliad';
 import { AuthService } from '../../../core/services/auth.service';
 import { SessionStorageService } from '../../../core/services/session-storage.service';
+import { TourMatMenuModule } from 'ngx-ui-tour-md-menu';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, TourMatMenuModule],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css'
 })

@@ -8,13 +8,13 @@
         <!-- Columna Izquierda -->
         <main class="col-9 d-flex flex-column p-0">
             <!-- diagrama -->
-            <section class="content-section flex-grow-1 p-4">
+            <section tourAnchor="diagram" class="content-section flex-grow-1 p-4">
                 <div class="container">
                     <app-hexagonal-diagram />
                 </div>
             </section>
             <!--Descripción -->
-            <section class="description-section p-4">
+            <section tourAnchor="architecture-description" class="description-section p-4">
                 <p>La Arquitectura Hexagonal, también conocida como Arquitectura de Puertos y Adaptadores, es un patrón
                     de diseño de
                     software que tiene como objetivo crear aplicaciones altamente desacopladas y fáciles de mantener. Se
@@ -31,12 +31,12 @@
 
         </main>
         <!-- estructura -->
-        <aside class="col-3 p-4">
+        <aside tourAnchor="estructure" class="col-3 p-4">
             <ng-container *ngIf="template">
                 <app-file-structure [templateId]="template.id" />
                 <div class="d-flex justify-content-end gap-2">
                     <app-update-template-button [templateId]="template.id"></app-update-template-button>
-                    <app-download-template-button [templateId]="template.id"
+                    <app-download-template-button tourAnchor="download" [templateId]="template.id"
                         [highlight]="highlightButton"></app-download-template-button>
                 </div>
             </ng-container>
@@ -44,3 +44,4 @@
 
     </div>
 </div>
+<tour-step-template></tour-step-template>

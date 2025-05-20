@@ -1,5 +1,5 @@
 <nav class="sidebar p-3">
-    <ul class="nav flex-column">
+    <ul class="nav flex-column" tourAnchor="start">
         <li class="nav-item" *ngFor="let type of architectureTypes">
             <a class="nav-link" (click)="setType(type)" [class.active]="selectedType === type">
                 <i class="bi bi-diagram-3-fill me-2"></i>{{ type }}
@@ -12,3 +12,4 @@
         </li>
     </ul>
 </nav>
+<tour-step-template></tour-step-template>

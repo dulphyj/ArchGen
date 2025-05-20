@@ -5,6 +5,7 @@ import { TemplateService } from '../../core/services/template.service';
 import { DownloadTemplateButtonComponent } from "../../shared/components/download-template-button/download-template-button.component";
 import { AuthService } from '../../core/services/auth.service';
 import { SessionStorageService } from '../../core/services/session-storage.service';
+import { ActiveToast, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-custom-templates',
@@ -22,7 +23,7 @@ export class CustomTemplatesComponent implements OnInit {
   templates: Template[] = [];
 
 
-  constructor(private tempalteService: TemplateService) { }
+  constructor(private tempalteService: TemplateService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getUserTemplates();
@@ -46,9 +47,11 @@ export class CustomTemplatesComponent implements OnInit {
       .subscribe({
         next: () => {
           this.getUserTemplates();
+          this.toastr.success('Plantilla eliminada correctamente', "Éxito");
           console.log("Plantilla eliminada")
         }, error: (err) => {
           console.log("Error al eliminar plantilla", err);
+          this.toastr.error('Error al eliminar plantilla');
         }
       });
   }

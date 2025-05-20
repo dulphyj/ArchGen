@@ -4,6 +4,7 @@ import { TemplateService } from '../../../core/services/template.service';
 import { SessionStorageService } from '../../../core/services/session-storage.service';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../core/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-download-template-button',
@@ -23,7 +24,7 @@ export class DownloadTemplateButtonComponent implements OnInit, OnChanges {
   @Input() highlight = false;
 
 
-  constructor(private templateService: TemplateService, private sessionStorage: SessionStorageService) { }
+  constructor(private templateService: TemplateService, private sessionStorage: SessionStorageService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getTemplate();
@@ -53,18 +54,26 @@ export class DownloadTemplateButtonComponent implements OnInit, OnChanges {
 
   downloadTemplate(): void {
     if (this.template?.id) {
+      this.toastr.info('Iniciando descarga', 'Descargando', { timeOut: 350, progressBar: true });
+
       this.templateService.downloadTemplate(this.template.id).subscribe({
         next: (blob) => {
-          const url = window.URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = `${this.template?.name}.zip`;
-          a.click();
-          window.URL.revokeObjectURL(url);
-        }, error: (err) => {
+          setTimeout(() => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${this.template?.name}.zip`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+            this.toastr.success('Descarga exitosa', 'Éxito');
+          }, 350);
+        },
+        error: (err) => {
           console.error('Error downloading template:', err);
+          this.toastr.error('No se pudo descargar el template', 'Error');
         }
-      })
+      });
     }
   }
+
 }
