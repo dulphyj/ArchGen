@@ -37,9 +37,10 @@
         <!-- Columna derecha: Estructura -->
         <div class="col-12 col-lg-4 mb-3 h-100 p-3">
             <ng-container *ngIf="template">
-                <app-file-structure [templateId]="template.id"></app-file-structure>
+                <app-file-structure tourAnchor="estructure" [templateId]="template.id"></app-file-structure>
                 <div class="d-flex flex-wrap justify-content-end gap-2 mt-3">
-                    <app-update-template-button [templateId]="template.id"></app-update-template-button>
+                    <app-update-template-button [templateId]="template.id"
+                        [highlight]="highlightButtonUpdate"></app-update-template-button>
                     <app-download-template-button tourAnchor="download" [templateId]="template.id"
                         [highlight]="highlightButton"></app-download-template-button>
                 </div>

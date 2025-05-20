@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { ClerkService } from 'ngx-clerk-iliad';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent {
   title = 'ArchGen';
   constructor(private _clerk: ClerkService) {
     this._clerk.__init({
-      publishableKey: 'pk_test_cXVpY2stZWxlcGhhbnQtNTAuY2xlcmsuYWNjb3VudHMuZGV2JA'
+      publishableKey: environment.clerkApiKey
     })
     this._clerk.clerk$.subscribe(clerk => {
       if (clerk) {

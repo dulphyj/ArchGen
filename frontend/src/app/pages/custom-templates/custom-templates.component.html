@@ -1,24 +1,32 @@
 <div class="container mt-5">
-    <h2 class="title mb-4">Mis Plantillas</h2>
+    <h2 class="title mb-4 text-light">Mis Plantillas</h2>
 
-    <!-- Sin plantillas -->
-    <div *ngIf="templates.length === 0" class="text-light">
-        <p>Aún no has creado ninguna plantilla.</p>
+    <!-- SIN PLANTILLAS -->
+    <div *ngIf="templates.length === 0" class="text-center py-5">
+        <div class="empty-section p-4 rounded shadow-sm">
+            <h4 class="mb-3">Empieza a editar tus plantillas personalizadas</h4>
+            <p class="mb-4">Crea estructuras únicas y reutilizables según tu necesidad.</p>
+            <button class="btn btn-primary btn-lg px-4" (click)="startEditing()">
+                Empezar a editar
+            </button>
+        </div>
     </div>
 
-    <!-- Lista de plantillas -->
+    <!-- LISTA DE PLANTILLAS -->
     <div *ngIf="templates.length > 0" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         <div class="col" *ngFor="let template of templates">
             <div class="card card-container h-100 d-flex flex-column justify-content-between">
                 <div class="card-body">
-                    <h5 class="card-title">{{ template.name }}</h5>
-                    <p class="card-text"><strong>Descripción:</strong> {{ template.description }}</p>
-                    <p class="card-text"><strong>Arquitectura:</strong> {{ template.type }}</p>
-                    <p class="card-text"><strong>Carpetas:</strong> {{ template.structure.folders.length }}</p>
+                    <h5 class="card-title text-light">{{ template.name }}</h5>
+                    <p class="card-text text-light"><strong>Descripción:</strong> {{ template.description }}</p>
+                    <p class="card-text text-light"><strong>Arquitectura:</strong> {{ template.type }}</p>
+                    <p class="card-text text-light"><strong>Carpetas:</strong> {{ template.structure.folders.length }}
+                    </p>
                 </div>
                 <div class="card-footer d-flex justify-content-end gap-2 border-top">
-                    <button class="btn-custom" (click)="deleteTemplate(template.id)" title="Eliminar plantilla">
-                        <i class="bi bi-trash icon-lg"></i>
+                    <button class="btn btn-outline-danger" (click)="deleteTemplate(template.id)"
+                        title="Eliminar plantilla">
+                        <i class="bi bi-trash"></i>
                     </button>
                     <app-download-template-button [templateId]="template.id"></app-download-template-button>
                 </div>

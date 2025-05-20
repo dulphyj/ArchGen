@@ -6,7 +6,7 @@
             </span>
 
             <div class="folder-name"
-                [ngStyle]="{ transform: 'scale(' + (1 - depth * 0.045) + ')', 'transform-origin': 'right top' }">
+                [ngStyle]="{ transform: 'scale(' + (1 - depth * 0.02) + ')', 'transform-origin': 'right top' }">
                 <input type="text" [(ngModel)]="folder.name" placeholder="Nombre de carpeta" class="form-control"
                     title="Nombre de la carpeta" />
             </div>
@@ -27,7 +27,7 @@
     </div>
 
     <div *ngIf="folder.subFolders">
-        <app-folder-editor *ngFor="let sub of folder.subFolders; let i = index" [folder]="sub" [depth]="depth + 1"
+        <app-folder-editor *ngFor="let sub of folder.subFolders; let i = index" [folder]="sub" [depth]="depth + 3"
             (delete)="folder.subFolders?.splice(i, 1)">
         </app-folder-editor>
     </div>

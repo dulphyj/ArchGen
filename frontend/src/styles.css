@@ -54,20 +54,6 @@ a {
     }
 }
 
-.logo-box {
-    width: 60px;
-    height: 60px;
-    font-weight: 700;
-    font-size: 1.6rem;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary);
-    color: var(--light-text);
-}
-
-
 /*tour ngx*/
 .mat-mdc-menu-content{
     background-color: var(--primary);

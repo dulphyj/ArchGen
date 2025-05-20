@@ -1,5 +1,5 @@
 <!-- login.component.html -->
-<div class="container-fluid bg-dark-bg text-light-text min-vh-100 d-flex flex-column">
+<div class="login container-fluid bg-dark-bg text-light-text min-vh-100 d-flex flex-column">
 
     <!-- Volver al inicio -->
     <div class="pt-4 ps-4">
@@ -10,14 +10,23 @@
     <div class="row flex-grow-1 d-flex align-items-center justify-content-center px-3">
 
         <!-- Columna izquierda: Información -->
-        <div class="col-lg-6 mb-5 mb-lg-0 px-5">
+        <div class="col-lg-6 mb-5 mb-lg-0 px-5 ">
             <div class="d-flex align-items-center mb-4">
-                <div class="logo-box bg-primary text-light-text me-3">AG</div>
-                <h1 class="h2 fw-bold m-0">ArchGen</h1>
+                <div class="logo-box me-3">AG</div>
+                <h1 class="h2 fw-bold m-0 ">ArchGen</h1>
             </div>
-            <p class="fs-5 text-secondary mb-3">Crea estructuras al instante sin configuración manual.</p>
-            <p class="mb-2">Plantillas con carpetas, archivos y jerarquías claras.</p>
-            <p>Guarda tus plantillas y vuelve a usarlas cuando quieras.</p>
+            <p class="fs-4 mb-3" style="color: var(--light-text);">
+                Crea estructuras al instante sin configuración manual.
+            </p>
+
+            <p class="fs-4 mb-2" style="color: var(--tertiary);">
+                Plantillas con carpetas y jerarquías claras.
+            </p>
+
+            <p class="fs-4" style="color: var(--light-text);">
+                Guarda tus plantillas y vuelve a usarlas cuando quieras.
+            </p>
+
         </div>
 
         <!-- Columna derecha: Login -->
@@ -28,19 +37,26 @@
     </div>
 
     <!-- Footer -->
-    <footer class="py-3 mt-auto">
-        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 px-4">
-            <span class="fw-bold"></span>
+    <footer class="py-3 mt-auto border-top">
+        <div
+            class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 px-4 text-light">
+
+            <!-- Marca o mensaje opcional -->
+            <span class="fw-bold">© 2025 ArchGen</span>
+
+            <!-- Enlaces con íconos -->
             <div class="d-flex align-items-center gap-3 flex-wrap">
-                <button class="btn btn-sm text-light-text border-light"
-                    onclick="location.href='mailto:gonzalo@gonzaloencinas.com'">
-                    mailgonzaloencinas.com
-                </button>
-                <a href="https://gonzaloencinas.com/" target="_blank" class="text-decoration-none text-light-text">Sitio
-                    Web</a>
-                <a href="https://gonzaloencinas.com/" target="_blank"
-                    class="text-decoration-none text-light-text">GitHub</a>
+                <a href="https://gonzaloencinas.com/" target="_blank" rel="noopener noreferrer"
+                    class="text-decoration-none text-light d-flex align-items-center gap-1">
+                    <i class="bi bi-globe2"></i> Sitio Web
+                </a>
+                <a href="https://github.com/gonzaloencinas" target="_blank" rel="noopener noreferrer"
+                    class="text-decoration-none text-light d-flex align-items-center gap-1">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
             </div>
+
         </div>
     </footer>
+
 </div>

@@ -24,6 +24,7 @@ export class HexagonalComponent implements OnInit {
   title: string = 'Arquitectura Hexagonal';
 
   highlightButton = false;
+  highlightButtonUpdate = false;
 
   constructor(private tempalteService: TemplateService, private route: ActivatedRoute) { }
 
@@ -31,6 +32,7 @@ export class HexagonalComponent implements OnInit {
     this.getTemplateByArch();
     this.route.queryParams.subscribe(params => {
       this.highlightButton = params['highlightButton'] === 'true';
+      this.highlightButtonUpdate = params['highlightButtonUpdate'] === 'true';
     });
     if (this.tourService.initTour()) {
       this.tourService.startTour();

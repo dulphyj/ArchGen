@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { ArchitectureType } from '../models/architecture-type.enum';
 import { Observable } from 'rxjs';
 import { Template } from '../models/template.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TemplateService {
-  private templateUrl = 'http://localhost:9000/api/template'
+  private templateUrl = environment.backendUrl;
 
   constructor(private httpClient: HttpClient) { }
 
