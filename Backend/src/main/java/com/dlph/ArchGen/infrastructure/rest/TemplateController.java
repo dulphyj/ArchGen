@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,6 +91,16 @@ public class TemplateController {
     @GetMapping("/type/{type}")
     public Optional<Template> getTemplateByType(@PathVariable ArchitectureType type) {
         return templateService.findFirstByTypeAndEditFalseAndClerkIdIsNull(type);
+    }
+
+    @GetMapping("/type")
+    public ResponseEntity<List<Template>> getTemplatesByType() {
+        List<Template> templates= new ArrayList<>();
+        for (ArchitectureType type: ArchitectureType.values()){
+            templateService.findFirstByTypeAndEditFalseAndClerkIdIsNull(type)
+                    .ifPresent(templates::add);
+        }
+        return ResponseEntity.ok(templates);
     }
 
     @GetMapping("/{id}")
