@@ -10,6 +10,7 @@ import { HexagonalDiagramComponent } from "../../../features/layout/architecture
 import { ActivatedRoute } from '@angular/router';
 import { TourMatMenuModule } from 'ngx-ui-tour-md-menu';
 import { TourControllerService } from '../../../core/services/tour-controller.service';
+import { LocalStorageService } from '../../../core/services/local-storage.service';
 
 @Component({
   selector: 'app-hexagonal',
@@ -20,16 +21,17 @@ import { TourControllerService } from '../../../core/services/tour-controller.se
 export class HexagonalComponent implements OnInit {
   private readonly tourService = inject(TourControllerService);
   arch = ArchitectureType.HEXAGONAL;
-  template!: Template;
+  template: Template | null = null;
   title: string = 'Arquitectura Hexagonal';
 
   highlightButton = false;
   highlightButtonUpdate = false;
 
-  constructor(private tempalteService: TemplateService, private route: ActivatedRoute) { }
+  constructor(private localStorage: LocalStorageService, private route: ActivatedRoute) { }
 
   async ngOnInit(): Promise<void> {
-    this.getTemplateByArch();
+    const cachKey = `Arquitectura ${this.arch}`;
+    this.template = this.localStorage.getItem(cachKey);
     this.route.queryParams.subscribe(params => {
       this.highlightButton = params['highlightButton'] === 'true';
       this.highlightButtonUpdate = params['highlightButtonUpdate'] === 'true';
@@ -39,30 +41,5 @@ export class HexagonalComponent implements OnInit {
       this.tourService.initTour.set(false);
       this.tourService.endTour();
     }
-  }
-
-  async getTemplateByArch() {
-    this.tempalteService.getTemplateByType(this.arch)
-      .subscribe({
-        next: template => {
-          if (template != null) {
-            this.template = template;
-          } else {
-            this.createTemplate();
-          }
-        }, error: err => {
-          console.log('Error fetching template:', err)
-        }
-      })
-  }
-  createTemplate() {
-    this.tempalteService.createTemplate(this.arch, `Arquitectura ${this.arch}`, '')
-      .subscribe({
-        next: template => {
-          this.template = template;
-        }, error: err => {
-          console.log('Error creating template:', err);
-        }
-      })
   }
 }

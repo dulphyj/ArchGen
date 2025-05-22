@@ -63,6 +63,7 @@ ArchGen implementa **Clerk** como sistema de autenticación:
 - ☁️ **Base de datos**: MongoDB
 - 📦 **Empaquetado**: Generación y descarga de archivos `.zip`
 - 🧪 **Despliegue**: Sitio accesible en modo desarrollo (sin HTTPS)
+- 🐳 **Docker**: Contenerización del backend para facilitar el despliegue
 
 ---
 
@@ -128,7 +129,7 @@ Este proyecto cumple con todos los requisitos de la Hackatón:
 
 ## 🗓️ Entregado el
 
-📅 20 de mayo de 2025 – antes de las 23:59 CET
+📅 20 de mayo de 2025
 
 ---
 

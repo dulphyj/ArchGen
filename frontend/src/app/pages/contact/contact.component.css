@@ -1,0 +1,19 @@
+.container{
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+}
+input,
+textarea {
+    background-color: rgba(78, 76, 76, 0.753);
+    color: var(--light-text);
+    border: 1px solid var(--tertiary);
+
+    &:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(85, 17, 237, 0.25);
+    }
+}
+
+label {
+    color: var(--light-text);
+}

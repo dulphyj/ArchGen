@@ -8,15 +8,16 @@ export class SessionStorageService {
   constructor() { }
 
   setItem(key: string, value: any): void {
-    sessionStorage.setItem(key, JSON.stringify(value));
+    sessionStorage.setItem(key, value);
   }
   getItem(key: string): any {
-    const value = sessionStorage.getItem(key);
-    return value ? JSON.parse(value) : null;
+    return sessionStorage.getItem(key);
+
   }
   removeItem(key: string): void {
     sessionStorage.removeItem(key);
   }
+
   clear(): void {
     sessionStorage.clear();
   }

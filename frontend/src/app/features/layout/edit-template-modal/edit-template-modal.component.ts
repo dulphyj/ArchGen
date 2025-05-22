@@ -9,6 +9,8 @@ import { SessionStorageService } from '../../../core/services/session-storage.se
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { timeout } from 'rxjs';
+import { LocalStorageService } from '../../../core/services/local-storage.service';
+import { ArchitectureType } from '../../../core/models/architecture-type.enum';
 
 @Component({
   selector: 'app-edit-template-modal',
@@ -29,7 +31,7 @@ export class EditTemplateModalComponent implements OnInit {
   template!: Template;
   inputValue: string = '';
 
-  constructor(private templateService: TemplateService, private toastr: ToastrService) { }
+  constructor(private templateService: TemplateService, private toastr: ToastrService, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.getTemplateById();
@@ -37,26 +39,25 @@ export class EditTemplateModalComponent implements OnInit {
   }
 
   getTemplateById() {
-    this.templateService.getTemplateById(this.templateId).subscribe({
-      next: (template) => {
-        this.template = template;
-      },
-      error: (error) => {
-        console.error('Error al obtener la plantilla:', error);
-      }
-    });
+    for (const type of Object.values(ArchitectureType)) {
+      if (this.templateId == this.localStorage.getItem(`id${type}`))
+        this.template = this.localStorage.getItem(`Arquitectura ${type}`) as Template;
+    }
   }
 
   save(): void {
     this.templateService.updateTemplate(this.template.id, this.template, this.clerkId).subscribe({
       next: (response) => {
         this.newTemplateId = response.id;
+        console.log(this.newTemplateId)
         this.template.name = response.name;
         this.template.description = response.description;
         this.template.type = this.template.type;
         this.template.structure = response.structure;
         console.log("Nueva plantilla creada.")
         this.toastr.success('Plantilla creada exitosamente', 'Éxito')
+        this.localStorage.setItem('change', this.newTemplateId)
+        console.log("change???????????????", this.localStorage.getItem('change'))
       },
       error: (error) => {
         console.error('Error al crear nueva plantilla:', error);

@@ -13,6 +13,9 @@ import { CustomTemplatesComponent } from './pages/custom-templates/custom-templa
 import { catchAllRoute } from 'ngx-clerk-iliad';
 import { authGuard } from './core/guards/auth.guard';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { TermsComponent } from './pages/legal/terms/terms.component';
+import { PrivacyComponent } from './pages/legal/privacy/privacy.component';
+import { ContactComponent } from './pages/contact/contact.component';
 
 export const routes: Routes = [
     {
@@ -25,7 +28,10 @@ export const routes: Routes = [
             { path: 'architecture/MVVM', component: MvvmComponent },
             { path: 'architecture/CBA', component: CbaComponent },
             { path: 'architecture/FEATURE_BASED', component: FeatureBasedComponent },
-            { path: 'customtemplates', component: CustomTemplatesComponent, canActivate: [authGuard] }
+            { path: 'customtemplates', component: CustomTemplatesComponent, canActivate: [authGuard] },
+            { path: 'legal/terms-conditions', component: TermsComponent },
+            { path: 'legal/privacy', component: PrivacyComponent },
+            { path: 'contact', component: ContactComponent }
         ]
     },
     { path: 'login', component: LoginComponent },
