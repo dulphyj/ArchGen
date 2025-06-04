@@ -17,7 +17,7 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        FRONTEND_BACKEND_URL: http://archgen-backend:8080
+        FRONTEND_BACKEND_URL: ${FRONTEND_BACKEND_URL}
         FRONTEND_CLERK_API_KEY: ${FRONTEND_CLERK_API_KEY}
     container_name: archgen-frontend
     ports:
@@ -26,6 +26,10 @@ services:
       - backend
     networks:
       - archgen-network
+
+networks:
+  archgen-network:
+    driver: bridge
 
 
 
