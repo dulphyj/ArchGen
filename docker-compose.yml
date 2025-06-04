@@ -10,7 +10,7 @@ services:
       PORT: ${PORT}
       MONGODB_URI: ${MONGODB_URI}
     ports:
-  - "${PORT}:${PORT}"
+      - "${PORT}:${PORT}"
     networks:
       - archgen-network
 
@@ -32,6 +32,7 @@ services:
 networks:
   archgen-network:
     driver: bridge
+
 
 
 
