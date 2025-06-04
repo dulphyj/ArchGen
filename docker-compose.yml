@@ -9,8 +9,10 @@ services:
     environment:
       PORT: ${PORT}
       MONGODB_URI: ${MONGODB_URI}
-    ports:
-      - "${PORT}:${PORT}"
+    expose:
+      - ${PORT}
+    #ports:
+    #  - "${PORT}:8080"
     networks:
       - archgen-network
 
