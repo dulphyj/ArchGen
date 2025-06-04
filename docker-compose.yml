@@ -10,7 +10,7 @@ services:
       PORT: ${PORT}
       MONGODB_URI: ${MONGODB_URI}
     ports:
-      - "${PORT}"
+  - "${PORT}:${PORT}"
     networks:
       - archgen-network
 
