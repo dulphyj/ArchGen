@@ -4,9 +4,9 @@
 
 ---
 
-## 🌐 Demo
+## 🌐 Web
 
-🧪 Demo en línea: [http://archgen.site](http://archgen.site) *(modo desarrollo sin HTTPS debido a backend sin certificado SSL)*
+🧪 App en línea: [https://archgen.site](https://archgen.site)
 
 📁 Repositorio público: [GitHub - ArchGen](https://github.com/dulphyj/ArchGen)
 

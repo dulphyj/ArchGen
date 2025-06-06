@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    backendUrl: '__BACKEND_URL__',
-    clerkApiKey: '__CLERK_API_KEY__'
+    backendUrl: '/api',
+    clerkApiKey: 'pk_test_cXVpY2stZWxlcGhhbnQtNTAuY2xlcmsuYWNjb3VudHMuZGV2JA',
 };
